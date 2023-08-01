@@ -7,7 +7,7 @@ import { animated } from '@react-spring/three'
 import { OrbitControls } from '@react-three/drei'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
-function Flower (props) {
+function Flower (props: any) {
   // This reference gives us direct access to the THREE.Mesh object.
   const gltf = useLoader(GLTFLoader, '/flower.gltf')
   const meshRef = useRef()

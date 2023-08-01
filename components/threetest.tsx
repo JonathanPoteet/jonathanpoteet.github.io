@@ -5,11 +5,11 @@ import { EventTypes, useGesture } from '@use-gesture/react'
 import { MeshDistortMaterial } from '@react-three/drei'
 import { useSpring } from 'react-spring'
 import { animated } from '@react-spring/three'
-import { Physics, Triplet, useBox, usePlane, usePointToPointConstraint, useSphere } from "@react-three/cannon"
+import { Physics, PlaneProps, Triplet, useBox, usePlane, usePointToPointConstraint, useSphere } from "@react-three/cannon"
 
 const cursor = createRef<Mesh>()
 
-function Box (props) {
+function Box (props: any) {
   // This reference gives us direct access to the THREE.Mesh object.
   const [ref, api] = useSphere(() => ({ mass: 1 }))
   const [, , constraint] = usePointToPointConstraint(cursor, ref, { pivotA: [0, 0, 0], pivotB: [0, 2, 0] })
@@ -67,16 +67,18 @@ const Cursor = () => {
   )
 }
 
-function Plane(props) {
+function Plane(props: PlaneProps) {
 	const [ref] = usePlane(() => ({...props }))
 	return (
 	  <mesh ref={ref}>
 		<planeGeometry args={[1000,1000]} />
+    <meshStandardMaterial />
+  
 	  </mesh>
 	)
   }
 
-    function Walls(props) {
+    function Walls() {
       const { viewport } = useThree()
       return (
         <>
