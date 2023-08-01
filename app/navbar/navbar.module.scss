@@ -1,0 +1,10 @@
+.navbar {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    background-color: lightgreen;
+    font-size: large;
+    div :hover {
+        color: whitesmoke;
+    }
+}

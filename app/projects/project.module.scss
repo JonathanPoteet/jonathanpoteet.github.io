@@ -1,0 +1,60 @@
+.projectStyle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 1rem;
+    background: white;
+    margin-left: 20%;
+    margin-right: 20%;
+
+    .projectSection {
+        padding: 2.5rem;
+        .sectionHeader {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding-bottom: 1rem;
+            font-size: xx-large;
+        }
+        .sectionSubHeader {
+            display: flex;
+            // justify-content: center;
+            flex-wrap: wrap;
+            padding-bottom: 1rem;
+            font-size: x-large;
+        }
+        .sectionBody {
+            display: flex;
+            flex-direction: column;
+            // align-items: center;
+            flex-wrap: wrap;
+            padding-bottom: 1rem;
+            :hover {
+                color: green;
+            }
+        }
+    }
+    .video {
+        display: flex;
+        justify-content: center;
+        .responsive {
+            width: 80%;
+            height: 700px;
+            @media only screen and (max-width: 1000px) {
+                height: 400px;
+            }
+            @media only screen and (max-width: 700px) {
+                height: 200px;
+                width: 100%;
+            }
+        }
+    }
+    .image {
+        display: flex;
+        justify-content: center;
+    }
+}
+.link {
+    color: blue;
+}

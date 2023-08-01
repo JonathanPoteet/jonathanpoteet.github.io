@@ -1,0 +1,92 @@
+.aboutStyle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    // border: solid lightblue 1rem;
+    border-radius: 1rem;
+    background: white;
+    @media only screen and (min-width: 600px) {
+        margin-right: 20%;
+        margin-left: 20%;
+    }
+
+    .aboutSection {
+        padding: 2.5rem;
+        .sectionHeader {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding-bottom: 1rem;
+            font-size: xx-large;
+        }
+        .sectionSubHeader {
+            display: flex;
+            // justify-content: center;
+            flex-wrap: wrap;
+            padding-bottom: 1rem;
+            font-size: x-large;
+        }
+        .sectionBody {
+            display: flex;
+            flex-direction: column;
+            // align-items: center;
+            flex-wrap: wrap;
+            padding-bottom: 1rem;
+        }
+        // :hover {
+        //     color: green;
+        // }
+    }
+    .video {
+        display: flex;
+        justify-content: center;
+        .responsive {
+            width: 80%;
+            height: 700px;
+            @media only screen and (max-width: 1000px) {
+                height: 400px;
+            }
+            @media only screen and (max-width: 700px) {
+                height: 200px;
+                width: 100%;
+            }
+        }
+    }
+    img.responsive {
+            width: 40%;
+            border-radius: 1rem;
+            @media only screen and (max-width: 1200px) {
+                width: 70%;
+            }
+            @media only screen and (max-width: 900px) {
+                width: 100%;
+            }
+            
+    }
+
+    .toProjects {
+        display: flex;
+        justify-content: end;
+        font-size: larger;
+        color: teal;
+        font-size: smaller;
+        :hover {
+            color: lightblue;
+        }
+    }
+
+    .experience {
+        .title {
+            font-size: large;
+        }
+        .date {
+            font-size: small;
+        }
+        .company
+        {
+            
+        }
+        padding-bottom: 1rem;
+    }
+}
