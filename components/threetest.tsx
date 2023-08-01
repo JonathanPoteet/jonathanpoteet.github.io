@@ -6,6 +6,7 @@ import { MeshDistortMaterial } from '@react-three/drei'
 import { useSpring } from 'react-spring'
 import { animated } from '@react-spring/three'
 import { Physics, PlaneProps, Triplet, useBox, usePlane, usePointToPointConstraint, useSphere } from "@react-three/cannon"
+import { BufferGeometry } from 'three/src/Three.js'
 
 const cursor = createRef<Mesh>()
 
@@ -70,10 +71,8 @@ const Cursor = () => {
 function Plane(props: PlaneProps) {
 	const [ref] = usePlane(() => ({...props }))
 	return (
-	  <mesh ref={ref}>
+	  <mesh ref={ref as React.RefObject<Mesh<BufferGeometry>>}>
 		<planeGeometry args={[1000,1000]} />
-    <meshStandardMaterial />
-  
 	  </mesh>
 	)
   }
