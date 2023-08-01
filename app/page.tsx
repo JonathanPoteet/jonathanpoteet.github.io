@@ -25,7 +25,7 @@ export default function Home() {
           </div>
           <div className={s.sectionBody}>
           - Developed and maintained frontend code using TypeScript, Angular, and Next.js technologies. <br />
-          - Integrated APIs to enable access to visual data, enhancing the application's capabilities and user experience. <br />
+          - Integrated APIs to enable access to visual data, enhancing the applications capabilities and user experience. <br />
           - Analyzed and refactored legacy code, enhancing its readability, scalability, and overall functionality. <br />
           - Worked closely with UX designers to implement responsive and visually appealing user interfaces. <br />
           - Collaborated with QA teams, providing support in testing efforts and ensuring the delivery of high-quality software that meets the business requirements. <br />
