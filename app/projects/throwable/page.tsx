@@ -7,7 +7,7 @@ export default function three() {
       <main className="min-h-screen">
         <div className={s.projectStyle}>
         <div>Throwable ball</div>
-        {/* <ThreeTest></ThreeTest> */}
+        <ThreeTest></ThreeTest>
         </div>
       </main>
     )
