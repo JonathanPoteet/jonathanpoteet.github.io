@@ -1,5 +1,6 @@
 import s from './project.module.scss'
 import Link from 'next/link'
+import {MdArrowRightAlt, MdFireplace} from 'react-icons/md'
 export default function three() {
   
     return (
@@ -9,7 +10,7 @@ export default function three() {
             <Link href='/projects/throwable'>
               <div className={s.sectionSubHeader}>Throwable Ball</div>
               <div className={s.sectionBody}>
-                <div>I created a ball with threejs which I wanted to be able to move and drop. I used react cannon, a js library, to handle the physics.</div> 
+                <div>I created a ball with threejs which I wanted to be able to move and drop. I used react cannon, a js library, to handle the physics. <MdArrowRightAlt/></div>
               </div>
             </Link>
             <br />
@@ -25,7 +26,7 @@ export default function three() {
             <Link href='/projects/flower'>
               <div className={s.sectionSubHeader}>Modeled a Flower</div>
               <div className={s.sectionBody}>
-                <div>This is a 3d model I created, and I am able to display it in the browser using three.js</div> 
+                <div>This is a 3d model I created, and I am able to display it in the browser using three.js <MdArrowRightAlt/></div> 
               </div>
             </Link>
             <div className={s.image}>

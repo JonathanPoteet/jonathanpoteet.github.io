@@ -3,10 +3,13 @@
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
-    border-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
     background: white;
-    margin-left: 20%;
-    margin-right: 20%;
+    @media only screen and (min-width: 600px) {
+        margin-right: 20%;
+        margin-left: 20%;
+    }
 
     .projectSection {
         padding: 2.5rem;
@@ -25,11 +28,12 @@
             font-size: x-large;
         }
         .sectionBody {
-            display: flex;
-            flex-direction: column;
-            // align-items: center;
-            flex-wrap: wrap;
             padding-bottom: 1rem;
+            svg {
+                color: teal;
+                display: inline-block;
+                font-size: x-large;
+            }
             :hover {
                 color: green;
             }

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import s from './about.module.scss'
+import {MdArrowRightAlt, MdAdjust, MdOutlineCopyright} from 'react-icons/md'
 export default function Home() {
   return (
     <main className="min-h-screen">
@@ -21,17 +22,17 @@ export default function Home() {
           <div className={s.experience}>
             <div className={s.company}>General Motors, Roswell, GA</div>
             <div className={s.date}>March 2021-Present</div>
-            <div className={s.title}>Software Developer</div>
           </div>
+            <div className={s.title}>Software Developer</div>
           <div className={s.sectionBody}>
-          - Developed and maintained frontend code using TypeScript, Angular, and Next.js technologies. <br />
-          - Integrated APIs to enable access to visual data, enhancing the applications capabilities and user experience. <br />
-          - Analyzed and refactored legacy code, enhancing its readability, scalability, and overall functionality. <br />
-          - Worked closely with UX designers to implement responsive and visually appealing user interfaces. <br />
-          - Collaborated with QA teams, providing support in testing efforts and ensuring the delivery of high-quality software that meets the business requirements. <br />
-          - Presented completed work to business leaders showcasing the enhanced functionality and features of the application. <br />
-          - Researched functionality requirements to gain a thorough understanding of the project needs and criteria. <br />
-          - Utilized version control systems to manage code changes and to allow for several developers to collaborate on a project simultaneously. <br />
+          <MdAdjust/> Developed and maintained frontend code using TypeScript, Angular, and Next.js technologies. <br />
+          <MdAdjust/> Integrated APIs to enable access to visual data, enhancing the applications capabilities and user experience. <br />
+          <MdAdjust/> Analyzed and refactored legacy code, enhancing its readability, scalability, and overall functionality. <br />
+          <MdAdjust/> Worked closely with UX designers to implement responsive and visually appealing user interfaces. <br />
+          <MdAdjust/> Collaborated with QA teams, providing support in testing efforts and ensuring the delivery of high-quality software that meets the business requirements. <br />
+          <MdAdjust/> Presented completed work to business leaders showcasing the enhanced functionality and features of the application. <br />
+          <MdAdjust/> Researched functionality requirements to gain a thorough understanding of the project needs and criteria. <br />
+          <MdAdjust/> Utilized version control systems to manage code changes and to allow for several developers to collaborate on a project simultaneously. <br />
           </div>
         
         

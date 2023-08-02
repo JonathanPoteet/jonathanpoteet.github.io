@@ -3,8 +3,8 @@
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
-    // border: solid lightblue 1rem;
-    border-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
     background: white;
     @media only screen and (min-width: 600px) {
         margin-right: 20%;
@@ -28,11 +28,12 @@
             font-size: x-large;
         }
         .sectionBody {
-            display: flex;
-            flex-direction: column;
-            // align-items: center;
-            flex-wrap: wrap;
             padding-bottom: 1rem;
+            svg {
+                color: teal;
+                display: inline-block;
+                font-size: small;
+            }
         }
         // :hover {
         //     color: green;
@@ -77,16 +78,19 @@
     }
 
     .experience {
-        .title {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        .company {
             font-size: large;
         }
         .date {
             font-size: small;
-        }
-        .company
-        {
             
         }
+    }
+    .title {
+        font-size: large;
         padding-bottom: 1rem;
     }
 }
