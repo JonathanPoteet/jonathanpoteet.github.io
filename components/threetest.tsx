@@ -1,10 +1,9 @@
-import { useRef, useState, createRef, useEffect, useCallback } from 'react'
-import { Canvas, useFrame, events, useThree, ThreeEvent } from '@react-three/fiber'
+import { createRef, useEffect } from 'react'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Mesh } from 'three' 
-import { EventTypes, useGesture } from '@use-gesture/react'
-import { MeshDistortMaterial } from '@react-three/drei'
+import { useGesture } from '@use-gesture/react'
 import { animated, useSpring } from '@react-spring/three'
-import { Physics, PlaneProps, Triplet, useBox, usePlane, usePointToPointConstraint, useSphere } from "@react-three/cannon"
+import { Physics, PlaneProps, usePlane, usePointToPointConstraint, useSphere } from "@react-three/cannon"
 import { BufferGeometry } from 'three/src/Three.js'
 
 const cursor = createRef<Mesh>()
@@ -17,9 +16,8 @@ function Box (props: any) {
   // Hold state for hovered and clicked events.
   const [spring, set] = useSpring(() => ({ scale: [1, 1, 1], position: [0, 0, 0], rotation: [0, 0, 0], config: { friction: 10 } }))
   const bind = useGesture({
-    onMove:({})=> {console.log('moving')},
-    onDrag: ({first, last}) => {if (first) constraint.enable(); if (last) constraint.disable(); console.log('grab')},
-    onHover: ({ hovering }) => set({ scale: hovering ? [.8, .8, .8] : [1, 1, 1] }),
+    onDrag: ({first, last}) => {if (first) constraint.enable(); if (last) constraint.disable();},
+    // onHover: ({ hovering }) => set({ scale: hovering ? [.8, .8, .8] : [1, 1, 1] }),
   }, {drag: {preventScroll: true}})
 
   // Subscribe this component to the render-loop and rotate the mesh every frame.
@@ -30,14 +28,14 @@ function Box (props: any) {
   // Return the view.
   // These are regular three.js elements expressed in JSX.
   return (
-    <animated.mesh      
+    <mesh      
       {...props}
 	  {...spring} {...bind()}
       ref={ref}
     > 
        <sphereGeometry  />
   		<meshStandardMaterial color='cyan'/>   
-    </animated.mesh>
+    </mesh>
   )
 }
 const Cursor = () => {
