@@ -18,6 +18,7 @@ function Box (props: any) {
   // Hold state for hovered and clicked events.
   const [spring, set] = useSpring(() => ({ scale: [1, 1, 1], position: [0, 0, 0], rotation: [0, 0, 0], config: { friction: 10 } }))
   const bind = useGesture({
+    onMove:({})=> {console.log('moving')},
     onDrag: ({first, last}) => {if (first) constraint.enable(); if (last) constraint.disable(); console.log('grab')},
     onHover: ({ hovering }) => set({ scale: hovering ? [.8, .8, .8] : [1, 1, 1] }),
   }, {drag: {preventScroll: true}})
