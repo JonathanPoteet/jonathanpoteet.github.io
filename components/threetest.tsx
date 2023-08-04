@@ -3,8 +3,7 @@ import { Canvas, useFrame, events, useThree, ThreeEvent } from '@react-three/fib
 import { Mesh } from 'three' 
 import { EventTypes, useGesture } from '@use-gesture/react'
 import { MeshDistortMaterial } from '@react-three/drei'
-import { useSpring } from 'react-spring'
-import { animated } from '@react-spring/three'
+import { animated, useSpring } from '@react-spring/three'
 import { Physics, PlaneProps, Triplet, useBox, usePlane, usePointToPointConstraint, useSphere } from "@react-three/cannon"
 import { BufferGeometry } from 'three/src/Three.js'
 
