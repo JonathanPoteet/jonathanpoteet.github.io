@@ -1,8 +1,7 @@
 import { createRef, useEffect } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Mesh } from 'three' 
-import { useGesture } from '@use-gesture/react'
-import { animated, useSpring } from '@react-spring/three'
+import { useDrag, useGesture } from '@use-gesture/react'
 import { Physics, PlaneProps, usePlane, usePointToPointConstraint, useSphere } from "@react-three/cannon"
 import { BufferGeometry } from 'three/src/Three.js'
 
@@ -14,11 +13,11 @@ function Box (props: any) {
   const [, , constraint] = usePointToPointConstraint(cursor, ref, { pivotA: [0, 0, 0], pivotB: [0, 1, 0] })
   useEffect(() => void constraint.disable(), [])
   // Hold state for hovered and clicked events.
-  const [spring, set] = useSpring(() => ({ scale: [1, 1, 1], position: [0, 0, 0], rotation: [0, 0, 0], config: { friction: 10 } }))
-  const bind = useGesture({
-    onDrag: ({first, last}) => {if (first) constraint.enable(); if (last) constraint.disable();},
-    // onHover: ({ hovering }) => set({ scale: hovering ? [.8, .8, .8] : [1, 1, 1] }),
-  }, {drag: {preventScroll: true}})
+  // const bind = useGesture({
+  //   onDrag: ({first, last}) => {if (first) constraint.enable(); if (last) constraint.disable();},
+  //   // onHover: ({ hovering }) => set({ scale: hovering ? [.8, .8, .8] : [1, 1, 1] }),
+  // }, {drag: {preventScroll: true}})
+  const bind = useDrag(({first, last})=> {if (first) constraint.enable(); if (last) constraint.disable();})
 
   // Subscribe this component to the render-loop and rotate the mesh every frame.
   useFrame((state,delta) => {
