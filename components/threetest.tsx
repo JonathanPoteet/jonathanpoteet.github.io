@@ -17,18 +17,10 @@ function Box (props: any) {
   useEffect(() => void constraint.disable(), [])
   console.log(ref)
   // Hold state for hovered and clicked events.
-  const [hovered, hover] = useState(false)
-  const [clicked, click] = useState(false)
-  const { size, viewport } = useThree()
-  const aspect = size.width / viewport.width
   const [spring, set] = useSpring(() => ({ scale: [1, 1, 1], position: [0, 0, 0], rotation: [0, 0, 0], config: { friction: 10 } }))
   const bind = useGesture({
-    // onDrag: ({ event, offset: [x, y] }) => {api.position.set(x / aspect, -y / aspect, 0)
-// console.log('dragging');},
-    onDrag: ({first, last}) => {if (first) constraint.enable(); if (last) constraint.disable()},
+    onDrag: ({first, last}) => {if (first) constraint.enable(); if (last) constraint.disable();},
     onHover: ({ hovering }) => set({ scale: hovering ? [.8, .8, .8] : [1, 1, 1] }),
-    // onPointerDown: (e) => {e.event.stopPropagation(), constraint.enable()},
-    // onPointerUp: () => {constraint.disable()},
   })
 
   // Subscribe this component to the render-loop and rotate the mesh every frame.
@@ -50,20 +42,19 @@ function Box (props: any) {
   )
 }
 const Cursor = () => {
-  const [ref, api] = useSphere(() => ({ args: [0.1], position: [0, 0, 10000], type: 'Static' }), cursor)
+  const [ref, api] = useSphere(() => ({ args: [0.1], position: [0, 0, 0], type: 'Static' }), cursor)
+  api.scaleOverride([.5, .5, .5])
 
-  const { size, viewport } = useThree()
-  const aspect = size.width / viewport.width
-  useFrame(({ mouse, viewport: { height, width } }) => {
-    const x = mouse.x * width
-    const y = (mouse.y * height)
-    api.position.set(x / 1.4, y, 0)
+  useFrame(({mouse, viewport: { height, width } }) => {
+    const x = mouse.x*width;
+    const y = mouse.y*height;
+    api.position.set(x/2, y/2, 0)
   })
 
   return (
     <mesh ref={ref}>
-      {/* <sphereBufferGeometry args={[0.5, 32, 32]} /> */}
-      <meshBasicMaterial fog={false} depthTest={false} transparent opacity={0.5} />
+      <sphereGeometry/>
+      <meshStandardMaterial />
     </mesh>
   )
 }
@@ -89,12 +80,6 @@ function Plane(props: PlaneProps) {
         </>
       )
     }
-// function CameraRig() {
-// 	useFrame((state, delta) => {
-// 	  easing.damp3(state.camera.position, [-1 + (state.pointer.x * state.viewport.width) / 3, (1 + state.pointer.y) / 2, 5.5], 0.5, delta)
-// 	  state.camera.lookAt(0, 0, 0)
-// 	})
-
 
 export default function ThreeTest() {
   return (

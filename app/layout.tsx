@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import Navbar from './navbar/navbar'
 import { Signika_Negative } from 'next/font/google'
+import Footer from './footer/footer'
 
 export const metadata: Metadata = {
   title: 'Jonathan Poteet',
@@ -21,7 +22,7 @@ export default function RootLayout({
       <body>
         <Navbar></Navbar>
         {children}
-         <div>Copyright 2023 by Jonathan Poteet</div>
+        <Footer></Footer>
       </body>
     </html>
   )
