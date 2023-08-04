@@ -38,6 +38,15 @@
                 color: green;
             }
         }
+        .projectDescription {
+            padding-bottom: 1rem;
+            .projectLink {
+                color: teal;
+                &:hover {
+                    color: lightblue;
+                }
+            }
+        }
     }
     .video {
         display: flex;

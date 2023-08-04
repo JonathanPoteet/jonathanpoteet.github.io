@@ -8,24 +8,11 @@ import { BufferGeometry } from 'three/src/Three.js'
 const cursor = createRef<Mesh>()
 
 function Box (props: any) {
-  // This reference gives us direct access to the THREE.Mesh object.
   const [ref, api] = useSphere(() => ({ mass: 1 }))
   const [, , constraint] = usePointToPointConstraint(cursor, ref, { pivotA: [0, 0, 0], pivotB: [0, 1, 0] })
   useEffect(() => void constraint.disable(), [])
-  // Hold state for hovered and clicked events.
-  // const bind = useGesture({
-  //   onDrag: ({first, last}) => {if (first) constraint.enable(); if (last) constraint.disable();},
-  //   // onHover: ({ hovering }) => set({ scale: hovering ? [.8, .8, .8] : [1, 1, 1] }),
-  // }, {drag: {preventScroll: true}})
   const bind = useDrag(({first, last})=> {if (first) constraint.enable(); if (last) constraint.disable();})
 
-  // Subscribe this component to the render-loop and rotate the mesh every frame.
-  useFrame((state,delta) => {
-	
-})
-
-  // Return the view.
-  // These are regular three.js elements expressed in JSX.
   return (
     <mesh      
       {...props}
