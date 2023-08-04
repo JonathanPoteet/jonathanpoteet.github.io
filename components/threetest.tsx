@@ -15,13 +15,12 @@ function Box (props: any) {
   const [ref, api] = useSphere(() => ({ mass: 1 }))
   const [, , constraint] = usePointToPointConstraint(cursor, ref, { pivotA: [0, 0, 0], pivotB: [0, 2, 0] })
   useEffect(() => void constraint.disable(), [])
-  console.log(ref)
   // Hold state for hovered and clicked events.
   const [spring, set] = useSpring(() => ({ scale: [1, 1, 1], position: [0, 0, 0], rotation: [0, 0, 0], config: { friction: 10 } }))
   const bind = useGesture({
-    onDrag: ({first, last}) => {if (first) constraint.enable(); if (last) constraint.disable();},
+    onDrag: ({first, last}) => {if (first) constraint.enable(); if (last) constraint.disable(); console.log('grab')},
     onHover: ({ hovering }) => set({ scale: hovering ? [.8, .8, .8] : [1, 1, 1] }),
-  })
+  }, {drag: {preventScroll: true}})
 
   // Subscribe this component to the render-loop and rotate the mesh every frame.
   useFrame((state,delta) => {
@@ -43,8 +42,7 @@ function Box (props: any) {
 }
 const Cursor = () => {
   const [ref, api] = useSphere(() => ({ args: [0.1], position: [0, 0, 0], type: 'Static' }), cursor)
-  api.scaleOverride([.5, .5, .5])
-
+  api.scaleOverride([.2, .2, .2])
   useFrame(({mouse, viewport: { height, width } }) => {
     const x = mouse.x*width;
     const y = mouse.y*height;
@@ -83,7 +81,7 @@ function Plane(props: PlaneProps) {
 
 export default function ThreeTest() {
   return (
-    <Canvas orthographic camera={{zoom: 100, position: [0,0,100]}} style={{height: 900 }}>
+    <Canvas orthographic camera={{zoom: 100, position: [0,0,100]}} style={{height: 900, touchAction: 'none' }}>
       {/* <color attach="background" args={['red']} /> */}
       <ambientLight intensity={0.5} />      
       <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />      

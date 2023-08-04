@@ -6,7 +6,7 @@ export default function three() {
     return (
       <main className="min-h-screen">
         <div className={s.projectStyle}>
-        <div>Throwable ball</div>
+        <div className={s.header}>Throwable ball</div>
         <ThreeTest></ThreeTest>
         </div>
       </main>
