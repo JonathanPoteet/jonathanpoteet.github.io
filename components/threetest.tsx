@@ -13,7 +13,7 @@ const cursor = createRef<Mesh>()
 function Box (props: any) {
   // This reference gives us direct access to the THREE.Mesh object.
   const [ref, api] = useSphere(() => ({ mass: 1 }))
-  const [, , constraint] = usePointToPointConstraint(cursor, ref, { pivotA: [0, 0, 0], pivotB: [0, 2, 0] })
+  const [, , constraint] = usePointToPointConstraint(cursor, ref, { pivotA: [0, 0, 0], pivotB: [0, 1, 0] })
   useEffect(() => void constraint.disable(), [])
   // Hold state for hovered and clicked events.
   const [spring, set] = useSpring(() => ({ scale: [1, 1, 1], position: [0, 0, 0], rotation: [0, 0, 0], config: { friction: 10 } }))
@@ -42,7 +42,6 @@ function Box (props: any) {
 }
 const Cursor = () => {
   const [ref, api] = useSphere(() => ({ args: [0.1], position: [0, 0, 0], type: 'Static' }), cursor)
-  api.scaleOverride([.2, .2, .2])
   useFrame(({mouse, viewport: { height, width } }) => {
     const x = mouse.x*width;
     const y = mouse.y*height;
@@ -50,7 +49,7 @@ const Cursor = () => {
   })
 
   return (
-    <mesh ref={ref}>
+    <mesh ref={ref} scale={[0.2,0.2,0.2]}>
       <sphereGeometry/>
       <meshStandardMaterial />
     </mesh>
