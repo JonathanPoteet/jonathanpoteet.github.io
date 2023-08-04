@@ -30,7 +30,7 @@ function Box (props: any) {
   return (
     <mesh      
       {...props}
-	  {...spring} {...bind()}
+	    {...bind()}
       ref={ref}
     > 
        <sphereGeometry  />
