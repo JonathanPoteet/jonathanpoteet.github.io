@@ -1,8 +1,4 @@
 .projectStyle {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: column;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     background: white;
@@ -42,6 +38,7 @@
             padding-bottom: 1rem;
             .projectLink {
                 color: teal;
+                overflow-wrap: break-word;
                 &:hover {
                     color: lightblue;
                 }
