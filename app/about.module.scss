@@ -9,48 +9,32 @@
 
     .aboutSection {
         padding: 2.5rem;
+        margin-bottom: 2.5rem;
+        box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.3);
         .sectionHeader {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            padding-bottom: 1rem;
+            // padding-bottom: 1rem;
             font-size: xx-large;
         }
         .sectionSubHeader {
             display: flex;
-            // justify-content: center;
+            justify-content: center;
             flex-wrap: wrap;
             padding-bottom: 1rem;
             font-size: x-large;
         }
         .sectionBody {
-            padding-bottom: 1rem;
+            padding-bottom: 2.5rem;
             svg {
                 color: teal;
                 display: inline-block;
                 font-size: small;
             }
         }
-        // :hover {
-        //     color: green;
-        // }
-    }
-    .video {
-        display: flex;
-        justify-content: center;
-        .responsive {
-            width: 80%;
-            height: 700px;
-            @media only screen and (max-width: 1000px) {
-                height: 400px;
-            }
-            @media only screen and (max-width: 700px) {
-                // height: 100%;
-                width: 100%;
-            }
-        }
-    }
-    img.responsive {
+        .sectionImage {
+            padding-bottom: 2.5rem;
             width: 40%;
             border-radius: 1rem;
             @media only screen and (max-width: 1200px) {
@@ -58,18 +42,21 @@
             }
             @media only screen and (max-width: 900px) {
                 width: 100%;
-            }
-            
+                }
+        }
+        // :hover {
+        //     color: green;
+        // }
     }
 
-    .toProjects {
-        display: flex;
-        justify-content: end;
-        font-size: larger;
-        color: teal;
-        font-size: smaller;
-        :hover {
-            color: lightblue;
+    .projectDescription {
+        padding-bottom: 1rem;
+        .projectLink {
+            color: teal;
+            overflow-wrap: break-word;
+            &:hover {
+                color: lightblue;
+            }
         }
     }
 
@@ -88,5 +75,59 @@
     .title {
         font-size: large;
         padding-bottom: 1rem;
+    }
+
+    .projectSection {
+        padding: 2.5rem;
+        // box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.3);
+        .sectionHeader {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            // padding-bottom: 1rem;
+            font-size: xx-large;
+        }
+        .sectionSubHeader {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding-bottom: 1rem;
+            font-size: x-large;
+        }
+        .sectionBody {
+            padding-bottom: 1rem;
+            svg {
+                color: teal;
+                display: inline-block;
+                font-size: x-large;
+            }
+            :hover {
+                color: green;
+            }
+        }
+        .sectionImage {
+            display: flex;
+            justify-content: center;    
+            padding-bottom: 2.5rem;
+        }
+
+        .video {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 2.5rem;
+            .responsive {
+                outline: none;                
+                width: 80%;
+                height: 700px;
+                @media only screen and (max-width: 1000px) {
+                    height: 400px;
+                }
+                @media only screen and (max-width: 700px) {
+                    // height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+      
     }
 }

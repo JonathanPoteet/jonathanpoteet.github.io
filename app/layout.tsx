@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={signika.className}>
       <body>
-        <Navbar></Navbar>
+        {/* <Navbar></Navbar> */}
         {children}
         <Footer></Footer>
       </body>
