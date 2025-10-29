@@ -26,10 +26,12 @@ function Box (props: any) {
 }
 const Cursor = () => {
   const [ref, api] = useSphere(() => ({ args: [0.1], position: [0, 0, 0], type: 'Static' }), cursor)
-  useFrame(({mouse, viewport: { height, width } }) => {
-    const x = mouse.x*width;
-    const y = mouse.y*height;
-    api.position.set(x/2, y/2, 0)
+  useFrame((state) => {
+    // pointer.x and pointer.y are normalized -1 to 1
+    const { pointer, viewport } = state
+    const x = pointer.x * viewport.width / 2
+    const y = pointer.y * viewport.height / 2
+    api.position.set(x, y, 0)
   })
 
   return (
