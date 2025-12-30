@@ -9,7 +9,7 @@ export default function Home() {
         <div className={s.aboutSection}>
           <div className={s.sectionHeader}>Jonathan Poteet</div>
             <br />
-          <div className={s.sectionHeader}>  <img src="/JonathanPortrait.png" className={s.sectionImage} alt="Picture of Jonathan Poteet" /></div>
+          <div className={s.sectionHeader}>  <img src="/JonathanPoteetProfessional.jpg" className={s.sectionImage} alt="Picture of Jonathan Poteet" loading="eager" /></div>
           <div className={s.sectionSubHeader}>Education</div>
           <div className={s.sectionBody}>
             Florida State University, Tallahassee, FL <br />					                                     
