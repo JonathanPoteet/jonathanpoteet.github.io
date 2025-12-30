@@ -1,26 +1,23 @@
-import { useRef} from 'react'
+import { useMemo, Suspense } from 'react'
 import { Canvas, useLoader } from '@react-three/fiber'
 import { useSpring } from 'react-spring'
 import { animated } from '@react-spring/three'
-import { OrbitControls } from '@react-three/drei'
+import { OrbitControls, Environment } from '@react-three/drei'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { Mesh } from 'three'
 
 function Flower (props: any) {
   const gltf = useLoader(GLTFLoader, '/flower.gltf')
-  const meshRef = useRef<Mesh>(null!)
+  const scene = useMemo(() => gltf.scene.clone(), [gltf.scene])
 
   const [spring, set] = useSpring(() => ({ scale: [1, 1, 1], position: [0, 0, 0], rotation: [1.7, -.2, -.2], config: { friction: 10 } }))
 
   return (
-    <animated.mesh
-    ref={meshRef}      
+    <animated.group
       {...props}
 	  {...spring}
-    > 
-       <primitive object={gltf.scene} />
-  		<meshStandardMaterial color='red'/>   
-    </animated.mesh>
+    >
+       <primitive object={scene} />
+    </animated.group>
   )
 }
 
@@ -31,7 +28,10 @@ export default function ThreeTest() {
       <ambientLight intensity={0.5} />      
       <spotLight position={[30, 30, 10]} angle={0.15} penumbra={1} />      
       <pointLight position={[-10, -10, -10]} />
-        <Flower />
+        <Suspense fallback={null}>
+          <Flower />
+          <Environment preset="sunset" />
+        </Suspense>
         <OrbitControls />
     </Canvas>
   )
