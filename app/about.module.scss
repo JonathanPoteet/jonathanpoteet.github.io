@@ -66,12 +66,13 @@
 
     .projectDescription {
         padding-bottom: 1rem;
-        .projectLink {
-            color: teal;
-            overflow-wrap: break-word;
-            &:hover {
-                color: lightblue;
-            }
+    }
+    .projectLink {
+        color: teal;
+        overflow-wrap: break-word;
+        word-break: break-all;
+        &:hover {
+            color: lightblue;
         }
     }
 
@@ -130,6 +131,11 @@
             display: flex;
             justify-content: center;    
             padding-bottom: 2.5rem;
+            img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 1rem;
+            }
         }
 
         .video {
