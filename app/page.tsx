@@ -8,7 +8,7 @@ export default function Home() {
       <div className={s.aboutStyle}>
       
         <div className={s.aboutSection}>
-          <div className={s.sectionHeader}>Jonathan Poteet</div>
+          <h1 className={s.sectionHeader}>Jonathan Poteet</h1>
             <br />
           <div className={s.sectionHeader}>
             <Image
@@ -20,7 +20,7 @@ export default function Home() {
               priority
             />
           </div>
-          <div className={s.sectionSubHeader}>Education</div>
+          <h2 className={s.sectionSubHeader}>Education</h2>
           <div className={s.sectionBody}>
             Florida State University, Tallahassee, FL <br />					                                     
             December 2020 <br /> 
@@ -32,7 +32,7 @@ export default function Home() {
             Master of Science in Computer Science <br/>
           </div>
 
-          <div className={s.sectionSubHeader}>Experience</div>
+          <h2 className={s.sectionSubHeader}>Experience</h2>
           <div className={s.experience}>
             <div className={s.company}>General Motors, Roswell, GA</div>
             <div className={s.date}>March 2021-December 2025</div>
@@ -58,10 +58,10 @@ export default function Home() {
         </div>
 
         <div className={s.projectSection}>
-        <div className={s.sectionSubHeader}>Projects</div>
+        <h2 className={s.sectionSubHeader}>Projects</h2>
         </div>
         <div className={s.projectSection}>
-            <div className={s.sectionSubHeader}>Cloud Computing & Distributed Systems – Kubernetes Cluster</div>
+            <h3 className={s.sectionSubHeader}>Cloud Computing & Distributed Systems – Kubernetes Cluster</h3>
             <div className={s.sectionBody}>
               <div>
                 <MdAdjust/> Designed and deployed a Kubernetes-based distributed system across four virtual machines using Docker and Ansible as part of a collaborative team project. <br />
@@ -72,13 +72,13 @@ export default function Home() {
                 <MdAdjust/> Applied container orchestration and cloud deployment best practices while independently researching and implementing new technologies. <br />
                 <MdAdjust/> Demonstrated proficiency in distributed system design, DevOps automation, and scalable cloud infrastructure management. <br />
                 <br/>
-                <Link href="https://github.com/JonathanPoteet/PA4_public" target="_blank">Cloud Computing Project</Link>
+                <Link href="https://github.com/JonathanPoteet/PA4_public" target="_blank" rel="noopener noreferrer">Cloud Computing Project</Link>
               </div>
             </div>
         </div>
         
         <div className={s.projectSection}>
-            <div className={s.sectionSubHeader}>Model-Integrated Computing – Turtle Graphics Design Studio, Metamodeling for Code Generation</div>
+            <h3 className={s.sectionSubHeader}>Model-Integrated Computing – Turtle Graphics Design Studio, Metamodeling for Code Generation</h3>
             <div className={s.sectionBody}>
               <div>
                 <MdAdjust/> Explored Domain-Specific Modeling Languages (DSMLs) through the development of a visual Turtle Graphics design studio in WebGME. <br />
@@ -89,13 +89,13 @@ export default function Home() {
                 <MdAdjust/> Applied metamodeling and DSML principles for automated code generation, formal verification, and interactive visual programming. <br />
                 <MdAdjust/> Demonstrated the practical use of modeling languages to bridge theoretical modeling concepts with real-world software engineering applications. <br />
                 <br/>
-                <Link href="https://github.com/JonathanPoteet/cs6388-50-mini-project" target="_blank">Turtle Graphics Design Studio With Code Generation</Link>
+                <Link href="https://github.com/JonathanPoteet/cs6388-50-mini-project" target="_blank" rel="noopener noreferrer">Turtle Graphics Design Studio With Code Generation</Link>
               </div>
             </div>
         </div>
         
         <div className={s.projectSection}>
-            <div className={s.sectionSubHeader}>Predictive Modeling & Responsible AI – Random Forest Pipeline</div>
+            <h3 className={s.sectionSubHeader}>Predictive Modeling & Responsible AI – Random Forest Pipeline</h3>
             <div className={s.sectionBody}>
               <div>
                 <MdAdjust/> Built a Random Forest pipeline to predict binary outcomes, performing data cleaning, imputation, model training, and evaluation using accuracy, precision, recall, and confusion matrices. <br />
@@ -104,16 +104,16 @@ export default function Home() {
                 <MdAdjust/> Conducted experiments in Python and Jupyter Notebooks, leveraging libraries such as pandas, scikit-learn, and matplotlib for analysis and visualization. <br />
                 <MdAdjust/> Strengthened understanding of machine learning workflows and responsible AI practices through applied experimentation and interpretability-focused evaluation. <br />
               <br/>
-              <Link href="https://github.com/JonathanPoteet/Projects/blob/main/Special_Topics_AI_Predictive_Model.ipynb" target="_blank">Special Topics - AI Predictive Model</Link>
+              <Link href="https://github.com/JonathanPoteet/Projects/blob/main/Special_Topics_AI_Predictive_Model.ipynb" target="_blank" rel="noopener noreferrer">Special Topics - AI Predictive Model</Link>
               </div>
             </div>
         </div>
         
         <div className={s.projectSection}>
-             <div className={s.sectionSubHeader}>General Motors – My Orders Page: Frontend & Checkout Integration</div>
+             <h3 className={s.sectionSubHeader}>General Motors – My Orders Page: Frontend & Checkout Integration</h3>
             <div className={s.sectionBody}>
               <div>
-                  <MdAdjust/> Managed the My Orders page on <Link href="https://www.cadillaceurope.com" target="_blank">cadillaceurope.com</Link>, enabling customers to view and track vehicle orders across European markets. <br />
+                  <MdAdjust/> Managed the My Orders page on <Link href="https://www.cadillaceurope.com" target="_blank" rel="noopener noreferrer">cadillaceurope.com</Link>, enabling customers to view and track vehicle orders across European markets. <br />
                   <MdAdjust/> Worked within the D2C and Dash teams to enhance order visibility, integrating financial, logistical, and vehicle details (make, model, trim, RPO/parts) through Strapi CMS and connected APIs. <br />
                   <MdAdjust/> Developed and maintained frontend components using Next.js and TypeScript, ensuring localization support for multiple regions (FR, SE, CH, DE). <br />
                   <MdAdjust/> Migrated the My Orders app to Solid.js within the Dash monorepo, improving performance, maintainability, and code reuse. <br />
@@ -126,7 +126,7 @@ export default function Home() {
 
         <div className={s.projectSection}>
           <Link href='/throwable'>
-            <div className={s.sectionSubHeader}>Throwable Ball - 2023 Project</div>
+            <h3 className={s.sectionSubHeader}>Throwable Ball - 2023 Project</h3>
             <div className={`${s.sectionBody}`}>
               <div>I created a ball with Three.js which I wanted to be able to move and drop. I used React Cannon, a JS library, to handle the physics, and the React useDrag call to handle the drag action. Below is a video of a prior iteration of it in use, and it can be interacted with directly here.  <MdArrowRightAlt/></div>
             </div>
@@ -145,7 +145,7 @@ export default function Home() {
 
         <div className={s.projectSection}>
           <Link href='/flower'>
-            <div className={s.sectionSubHeader}>Modeled a Flower - 2023 Project</div>
+            <h3 className={s.sectionSubHeader}>Modeled a Flower - 2023 Project</h3>
             <div className={`${s.sectionBody}`}>
               <div>This is a 3D model I created using blender. I converted it into a .gtlf file, set up the Three.js environment for it, and I am able to display it in the browser. You can navigate around the model using the OrbitControls function provided by the react library DREI. <MdArrowRightAlt/></div> 
             </div>
@@ -171,7 +171,7 @@ export default function Home() {
         </div> */}
 
         <div className={s.projectSection}>
-            <div className={s.sectionSubHeader}>Next.js Website with Three.js integrations</div>
+            <h3 className={s.sectionSubHeader}>Next.js Website with Three.js integrations</h3>
             <div className={s.sectionBody}>
               <div>This portfolio is created using the React Three.js framework, Typescript, styled using CSS modules, and it is deployed from GitHub pages. The link to the code for this site is found below.</div> 
               <Link className={s.projectLink} href='https://github.com/JonathanPoteet/jonathanpoteet.github.io'>

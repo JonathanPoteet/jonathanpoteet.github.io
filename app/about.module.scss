@@ -29,6 +29,7 @@
             font-size: 2rem;
             font-weight: 550;
             color: #2d3436;
+            margin-top: 0;
         }
         .sectionSubHeader {
             display: flex;
@@ -36,6 +37,7 @@
             flex-wrap: wrap;
             padding-bottom: 1rem;
             font-size: x-large;
+            margin-top: 0;
         }
         .sectionBody {
             line-height: 1.6;
@@ -49,6 +51,7 @@
         }
         .sectionImage {
             width: 40%;
+            height: auto;
             aspect-ratio: 3 / 4;
             object-fit: cover;
             border-radius: 1rem;
@@ -109,6 +112,7 @@
             flex-wrap: wrap;
             // padding-bottom: 1rem;
             font-size: xx-large;
+            margin-top: 0;
         }
         .sectionSubHeader {
             display: flex;
@@ -116,6 +120,7 @@
             flex-wrap: wrap;
             padding-bottom: 1rem;
             font-size: x-large;
+            margin-top: 0;
         }
         .sectionBody {
             color: #636e72;
