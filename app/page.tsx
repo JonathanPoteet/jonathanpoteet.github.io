@@ -152,7 +152,7 @@ export default function Home() {
 
         <div className={s.projectSection}>
             <div className={s.sectionSubHeader}>Next.js Website with Three.js integrations</div>
-            <div className={s.projectDescription}>
+            <div className={s.sectionBody}>
               <div>This portfolio is created using the React Three.js framework, Typescript, styled using CSS modules, and it is deployed from GitHub pages. The link to the code for this site is found below.</div> 
               <Link className={s.projectLink} href='https://github.com/JonathanPoteet/jonathanpoteet.github.io'>
                   https://github.com/JonathanPoteet/jonathanpoteet.github.io
