@@ -35,11 +35,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
-  icons: {
-    icon: [
-      { url: '/favicon/favicon.ico', sizes: 'any' },
-    ],
-  },
 }
 
 
