@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import s from './about.module.scss'
 import {MdArrowRightAlt, MdAdjust} from 'react-icons/md'
 export default function Home() {
@@ -9,7 +10,16 @@ export default function Home() {
         <div className={s.aboutSection}>
           <div className={s.sectionHeader}>Jonathan Poteet</div>
             <br />
-          <div className={s.sectionHeader}>  <img src="/JonathanPoteetProfessional.jpg" className={s.sectionImage} alt="Picture of Jonathan Poteet" loading="eager" /></div>
+          <div className={s.sectionHeader}>
+            <Image
+              src="/JonathanPoteetProfessional.jpg"
+              className={s.sectionImage}
+              alt="Picture of Jonathan Poteet"
+              width={600}
+              height={800}
+              priority
+            />
+          </div>
           <div className={s.sectionSubHeader}>Education</div>
           <div className={s.sectionBody}>
             Florida State University, Tallahassee, FL <br />					                                     
@@ -124,7 +134,11 @@ export default function Home() {
           <br />
           <div className={s.video}>
             <iframe className={s.responsive}
-            src="https://www.youtube.com/embed/C40fQYu7v4A">
+              src="https://www.youtube.com/embed/C40fQYu7v4A"
+              loading="lazy"
+              title="Throwable Ball Video"
+              allowFullScreen
+            >
             </iframe>
           </div>
         </div>
@@ -137,7 +151,13 @@ export default function Home() {
             </div>
           </Link>
           <div className={s.sectionImage}>
-            <img src="/flower.png" alt="Flower" />
+            <Image
+              src="/flower.png"
+              alt="Flower"
+              width={800}
+              height={600}
+              style={{ width: '100%', height: 'auto' }}
+            />
           </div>
         </div>
 

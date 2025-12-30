@@ -45,9 +45,33 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Jonathan Poteet',
+    url: 'https://jonathanpoteet.com',
+    image: 'https://jonathanpoteet.com/JonathanPoteetProfessional.jpg',
+    jobTitle: 'Software Engineer',
+    alumniOf: [
+      {
+        '@type': 'CollegeOrUniversity',
+        name: 'Florida State University',
+      },
+      {
+        '@type': 'CollegeOrUniversity',
+        name: 'Vanderbilt University',
+      },
+    ],
+    sameAs: ['https://github.com/JonathanPoteet'],
+  }
+
   return (
     <html lang="en" className={signika.className}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {/* <Navbar></Navbar> */}
         {children}
         <Footer></Footer>
