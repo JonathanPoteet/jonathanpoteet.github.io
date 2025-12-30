@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import s from './about.module.scss'
 import {MdArrowRightAlt, MdAdjust} from 'react-icons/md'
 export default function Home() {
@@ -11,13 +10,10 @@ export default function Home() {
           <h1 className={s.sectionHeader}>Jonathan Poteet</h1>
             <br />
           <div className={s.sectionHeader}>
-            <Image
+            <img
               src="/JonathanPoteetProfessional.jpg"
               className={s.sectionImage}
               alt="Picture of Jonathan Poteet"
-              width={600}
-              height={800}
-              priority
             />
           </div>
           <h2 className={s.sectionSubHeader}>Education</h2>
@@ -151,12 +147,9 @@ export default function Home() {
             </div>
           </Link>
           <div className={s.sectionImage}>
-            <Image
+            <img
               src="/flower.png"
               alt="Flower"
-              width={800}
-              height={600}
-              style={{ width: '100%', height: 'auto' }}
             />
           </div>
         </div>
