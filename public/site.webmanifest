@@ -1,1 +1,14 @@
-{"name":"Jonathan Poteet","short_name":"Jonathan Poteet","description":"Vanderbilt MSCS & FSU IT Grad. Expert in Full-stack & Distributed Systems development with a focus on BCI, IoT, and Immersive Tech (VR/AR).","icons":[{"src":"/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}
+{
+	"name": "Jonathan Poteet",
+	"short_name": "Jonathan Poteet",
+	"description": "Vanderbilt MSCS & FSU IT Grad. Expert in Full-stack & Distributed Systems development with a focus on BCI, IoT, and Immersive Tech (VR/AR).",
+	"icons": [
+		{"src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png"},
+		{"src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png"}
+	],
+	"theme_color": "#ffffff",
+	"background_color": "#ffffff",
+	"display": "standalone",
+	"start_url": "/",
+	"scope": "/"
+}
