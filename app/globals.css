@@ -6,6 +6,10 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  /* Accent color (teal) that pairs with the site's green and gold */
+  --accent-rgb: 11, 107, 91; /* #0B6B5B */
+  --button-bg-rgb: var(--accent-rgb);
+  --button-fg-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,10 +17,14 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --accent-rgb: 11, 107, 91; /* keep accent consistent in dark mode */
+    --button-bg-rgb: var(--accent-rgb);
+    --button-fg-rgb: 255, 255, 255;
   }
 }
 
 body {
   color: black;
   background: linear-gradient(whitesmoke 20%, lightgreen 90%);
+  padding-bottom: 5rem; /* ensure space for fixed footer */
 }

@@ -1,13 +1,129 @@
 .footer {
-    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 1rem 0px;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.info {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.linkIcons {
+    font-size: x-large;
+}
+
+.iconLink {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
-    .copyright{
-        display: inline-block;
-    }
-    .contact{
-        font-size: xx-large;
-        display: flex;
+    margin: 0 0.5rem;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 120ms ease, color 120ms ease;
+}
+
+.iconLink:hover,
+.iconLink:focus-visible {
+    transform: translateY(-2px);
+    color: rgb(var(--button-bg-rgb));
+    outline: none;
+}
+
+.downloadResume {
+    display: inline-block;
+    background-color: rgb(var(--button-bg-rgb));
+    color: rgb(var(--button-fg-rgb));
+    padding: 0.5rem 0.9rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(var(--button-bg-rgb), 0.12);
+    transition: transform 120ms ease, background-color 120ms ease, box-shadow 120ms ease;
+    border: none;
+    cursor: pointer;
+}
+
+.downloadResume:hover,
+.downloadResume:focus {
+    filter: brightness(0.94);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(var(--button-bg-rgb), 0.15);
+    outline: none;
+}
+
+.downloadResume:focus-visible {
+    box-shadow: 0 0 0 3px rgba(var(--button-bg-rgb),0.18);
+}
+
+.summary {
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0.25rem 0rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Hide native marker */
+details summary::-webkit-details-marker {
+    display: none;
+}
+details summary::marker {
+    content: '';
+}
+
+/* Right-side chevron (SVG) inline with text so the whole group centers */
+details summary::after {
+    content: '';
+    display: inline-block;
+    margin-left: 0.45rem;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='currentColor' d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z'/></svg>");
+    color: rgb(var(--button-bg-rgb));
+    transform: rotate(0deg);
+    transition: transform 160ms ease;
+}
+
+details[open] summary::after {
+    transform: rotate(180deg);
+}
+
+.copy {
+    margin-top: 0.6rem;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.subline {
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.subline a {
+    color: rgb(var(--button-bg-rgb));
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+@media (max-width: 480px) {
+    .subline {
+        font-size: 0.9rem;
     }
 }
