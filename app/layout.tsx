@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/JonathanPoteetProfessional.jpg',
-        width: 800,
-        height: 600,
+        width: 1200,
+        height: 630,
         alt: 'Jonathan Poteet',
       },
     ],
