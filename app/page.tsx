@@ -16,6 +16,16 @@ export default function Home() {
               alt="Picture of Jonathan Poteet"
             />
           </div>
+          <p className={s.lead}>
+            I'm a software engineer based in the U.S.,
+            open to opportunities nationwide — relocation and remote roles are
+            welcome, and I'm actively interested in positions in Atlanta. I
+            design and build full‑stack and distributed systems with a focus on
+            emerging technologies: Internet of Things (IoT) and IoT security,
+            VR/AR and immersive experiences, brain–computer interfaces (BCIs), 
+            and large‑scale data systems for research and production.
+          </p>
+          
           <h2 className={s.sectionSubHeader}>Education</h2>
           <div className={s.sectionBody}>
             Florida State University, Tallahassee, FL <br />					                                     

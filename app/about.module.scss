@@ -31,6 +31,12 @@
             color: #2d3436;
             margin-top: 0;
         }
+        .lead {
+            font-size: 1.125rem;
+            text-align: left;
+            padding-bottom: 2.5rem;
+            color: #2d3436;
+        }
         .sectionSubHeader {
             display: flex;
             justify-content: center;
@@ -50,7 +56,7 @@
             }
         }
         .sectionImage {
-            width: 40%;
+            width: 35%;
             height: auto;
             aspect-ratio: 3 / 4;
             object-fit: cover;
