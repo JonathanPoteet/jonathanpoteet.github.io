@@ -10,28 +10,8 @@ const TWITCH_HANDLE = "jonathanpoteet"
 const INSTA_HANDLE = "poteetjonathan"
 
 export default function FunStuff() {
-    const [mounted, setMounted] = useState(false);
-    const containerRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        setMounted(true); // only render Twitter after hydration
-        if ((window as any).twttr) {
-        (window as any).twttr.widgets.load(containerRef.current);
-        }
-    }, []);
-
-  if (!mounted) return null;
-
   return (
     <section className={styles.container} aria-labelledby="fun-header" id="hobbies-section">
-       <Script 
-        src="https://platform.twitter.com/widgets.js"
-        strategy="afterInteractive"
-        onLoad={() => {
-          if ((window as any).twttr) {
-            (window as any).twttr.widgets.load();
-          } 
-        }}/>
       <Script 
         src="https://www.instagram.com/embed.js"
         strategy="afterInteractive" 
@@ -74,32 +54,20 @@ export default function FunStuff() {
         </article>
 
 
-        {/* Twitter Timeline */}
         <article className={styles.card}>
-        <h4>Twitter/X</h4>
-        <p className={styles.expl}>Check out my latest ramblings!</p>
-        <div ref={containerRef} className={styles.embedWrapper}>
-            <a
-                className="twitter-timeline"
-                href={`https://twitter.com/${TW_HANDLE}`}
-                >
-                Tweets by {TW_HANDLE}
-            </a>        
+        <h4>Additional Socials</h4>
+        <p className={styles.expl}> Follow my ramblings, join my Discord, or subscribe to my YouTube (I don't post often, though I may in the future!)</p>
+        <div className={styles.linkContainer}>
+            <a href={`https://twitter.com/${TW_HANDLE}`} target="_blank" rel="noopener noreferrer" className={styles.button}>
+            Twitter / X
+            </a>
+            <a href={`https://www.youtube.com/@${YT_HANDLE}`} target="_blank" rel="noopener noreferrer" className={styles.button}>
+            YouTube
+            </a>
+            <a href={DISCORD_LINK} target="_blank" rel="noopener noreferrer" className={styles.button}>
+            Discord Server
+            </a>
         </div>
-        </article>
-
-        <article className={styles.card}>
-          <h4>Youtube</h4>
-          <p className={styles.expl}>I don't post often, but feel free to subscribe!</p>
-          <div className={styles.liveLinks}>
-             <a href={`https://www.youtube.com/@${YT_HANDLE}`} target="_blank" rel="noopener noreferrer" className={styles.button}>YouTube</a>
-          </div>
-        </article>
-
-        <article className={styles.card}>
-          <h4>Discord</h4>
-          <p className={styles.expl}>Here is my personal server, feel free to stop by to chat!</p>
-          <a href={DISCORD_LINK} target="_blank" rel="noopener noreferrer" className={styles.button}>Join My Personal Server</a>
         </article>
 
       </div>
