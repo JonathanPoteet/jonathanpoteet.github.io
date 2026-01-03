@@ -90,7 +90,7 @@ export default function FunStuff() {
 
         <article className={styles.card}>
           <h4>Youtube</h4>
-          <p className={styles.expl}>My Youtube, I don't post often, but feel free to give me a subscribe!</p>
+          <p className={styles.expl}>I don't post often, but feel free to subscribe!</p>
           <div className={styles.liveLinks}>
              <a href={`https://www.youtube.com/@${YT_HANDLE}`} target="_blank" rel="noopener noreferrer" className={styles.button}>YouTube</a>
           </div>
