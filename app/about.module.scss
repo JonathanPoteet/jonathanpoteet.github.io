@@ -1,3 +1,4 @@
+@use './shared.module.scss' as shared;
 .aboutStyle {
     /* This creates the 'thickness' of your border */
     border: 2px solid transparent;
@@ -16,61 +17,16 @@
         margin-left: 20%;
     }
 
+
     .aboutSection {
         padding: 2.5rem;
-        .sectionHeader {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            // padding-bottom: 1rem;
-            font-size: xx-large;
-
-            margin-bottom: 1rem;
-            font-size: 2rem;
-            font-weight: 550;
-            color: #2d3436;
-            margin-top: 0;
-        }
         .lead {
             font-size: 1.125rem;
             text-align: left;
             padding-bottom: 2.5rem;
             color: #2d3436;
         }
-        .sectionSubHeader {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding-bottom: 1rem;
-            font-size: x-large;
-            margin-top: 0;
-        }
-        .sectionBody {
-            line-height: 1.6;
-            color: #636e72;
-            padding-bottom: 2.5rem;
-            svg {
-                color: teal;
-                display: inline-block;
-                font-size: small;
-            }
-        }
-        .sectionImage {
-            width: 35%;
-            height: auto;
-            aspect-ratio: 3 / 4;
-            object-fit: cover;
-            border-radius: 1rem;
-            margin-bottom: 2.5rem;
-            @media only screen and (max-width: 1200px) {
-                width: 70%;
-            }
-            @media only screen and (max-width: 900px) {
-                width: 100%;
-                }
-                animation: fadeIn 1s ease-in-out;
-                
-        }
+        /* Use shared sectionBody */
     }
 
     .projectDescription {
@@ -108,65 +64,6 @@
     }
     .projectSection {
         padding: 2.5rem;
-        .sectionHeader {
-            margin-bottom: 1rem;
-            font-size: 2rem;
-            font-weight: 550;
-            color: #2d3436;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            // padding-bottom: 1rem;
-            font-size: xx-large;
-            margin-top: 0;
-        }
-        .sectionSubHeader {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding-bottom: 1rem;
-            font-size: x-large;
-            margin-top: 0;
-        }
-        .sectionBody {
-            color: #636e72;
-            line-height: 1.6;
-            padding-bottom: 1rem;
-            svg {
-                color: teal;
-                display: inline-block;
-                font-size: small;
-            }
-        }
-        .sectionImage {
-            display: flex;
-            justify-content: center;    
-            padding-bottom: 2.5rem;
-            img {
-                max-width: 100%;
-                height: auto;
-                border-radius: 1rem;
-            }
-        }
-
-        .video {
-            display: flex;
-            justify-content: center;
-            padding-bottom: 2.5rem;
-            .responsive {
-                outline: none;                
-                width: 80%;
-                height: 700px;
-                @media only screen and (max-width: 1000px) {
-                    height: 400px;
-                }
-                @media only screen and (max-width: 700px) {
-                    // height: 100%;
-                    width: 100%;
-                }
-            }
-        }
-      
     }
 }
 

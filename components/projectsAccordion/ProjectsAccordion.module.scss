@@ -1,0 +1,54 @@
+@use '../../app/shared.module.scss' as shared;
+.accordion {
+  width: 100%;
+  margin-top: 1rem;
+}
+.accordionItem {
+  border-top: 1px solid rgba(0,0,0,0.06);
+  padding: 0.5rem 0;
+}
+.accordionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0;
+}
+.accordionButton {
+  background: transparent;
+  border: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #2d3436;
+  text-align: center;
+  width: 100%;
+  padding: 0.5rem 1rem;
+}
+.accordionButton:focus {
+  outline: 3px solid rgba(0,128,128,0.28); /* teal */
+  outline-offset: 2px;
+}
+.accordionPanel {
+  padding: 0.75rem 1rem 1.5rem 1rem;
+  color: #636e72;
+  line-height: 1.6;
+}
+
+.video {
+  @include shared.video;
+}
+.responsive {
+  outline: none;
+  width: 80%;
+  height: 700px;
+}
+@media only screen and (max-width: 1000px) {
+  .responsive {
+    height: 400px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 100%;
+  }
+}

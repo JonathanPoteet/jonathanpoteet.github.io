@@ -1,0 +1,79 @@
+@mixin sectionHeader {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 550;
+  color: #2d3436;
+  margin-top: 0;
+}
+
+@mixin sectionSubHeader {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 1rem;
+  font-size: x-large;
+  margin-top: 0;
+}
+
+@mixin sectionBody {
+  color: #636e72;
+  line-height: 1.6;
+  padding-bottom: 1rem;
+}
+
+@mixin sectionBodySvg {
+  color: teal;
+  display: inline-block;
+  font-size: small;
+}
+
+@mixin sectionImage {
+  width: 35%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 2.5rem;
+  @media only screen and (max-width: 1200px) {
+    width: 70%;
+  }
+  @media only screen and (max-width: 900px) {
+    width: 100%;
+  }
+}
+
+@mixin video {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2.5rem;
+}
+
+@mixin projectDescription {
+  padding-bottom: 1rem;
+}
+
+@mixin projectLink {
+  color: teal;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+
+@mixin projectLinkHover {
+  color: lightblue;
+}
+
+/* Keep class aliases so modules can still import class names if desired */
+.sectionHeader { @include sectionHeader; }
+.sectionSubHeader { @include sectionSubHeader; }
+.sectionBody {
+  @include sectionBody;
+}
+.sectionBody svg { @include sectionBodySvg; }
+.sectionImage { @include sectionImage; }
+.video { @include video; }
+.projectDescription { @include projectDescription; }
+.projectLink { @include projectLink; }
+.projectLink:hover { @include projectLinkHover; }

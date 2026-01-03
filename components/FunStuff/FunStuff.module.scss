@@ -1,0 +1,70 @@
+.container {
+    padding: 0 2.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+.header {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.grid {
+    width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+}
+.card {
+  background: #f0f0f0; /* Match background slightly for best effect */
+  border-radius: 1.5rem;
+  border: none;
+  padding: 1.5rem;
+  /* Double shadow for depth */
+  box-shadow: 8px 8px 16px #d1d1d1, 
+             -8px -8px 16px #ffffff;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+.card h4 {
+  margin: 0 0 0.5rem 0;
+}
+.expl {
+  color: #636e72;
+  margin-bottom: 0.75rem;
+}
+.button {
+  display: inline-block;
+  background: teal;
+  color: white;
+  padding: 0.4rem 0.75rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+.liveLinks {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.twitterEmbed {
+  max-width: 100%;
+}
+
+.twitchViewer {
+ aspect-ratio: 16/9;
+ width: 100%;
+}
+
+.embedWrapper {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* 🔥 Force iframe to behave */
+.embedWrapper iframe {
+  max-width: 100% !important;
+  width: 100% !important;
+  min-width: 100% !important;
+}
