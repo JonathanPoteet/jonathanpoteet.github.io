@@ -47,7 +47,9 @@ export default function FunStuff() {
             <iframe
               src={`https://player.twitch.tv/?channel=${TWITCH_HANDLE}&parent=jonathanpoteet.com&parent=www.jonathanpoteet.com&parent=localhost&muted=true`}
             referrerPolicy="strict-origin-when-cross-origin"
-              className={styles.twitchViewer}>
+              className={styles.twitchViewer}
+              allow='encrypted-media; fullscreen; picture-in-picture; autoplay'
+              >
             </iframe>
           </div>
           <a href={`https://twitch.tv/${TWITCH_HANDLE}`} target="_blank" rel="noopener noreferrer" className={styles.button}>Follow on Twitch</a>
