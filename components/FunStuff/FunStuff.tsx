@@ -46,7 +46,7 @@ export default function FunStuff() {
           <div className={styles.embedWrapper}>
             <iframe
               referrerPolicy="no-referrer-when-downgrade"
-              src={`https://player.twitch.tv/?channel=${TWITCH_HANDLE}&parent=https://www.jonathanpoteet.com`}
+              src={`https://player.twitch.tv/?channel=${TWITCH_HANDLE}&parent=https://www.jonathanpoteet.com&parent=http://www.jonathanpoteet.com`}
               className={styles.twitchViewer}
               allowFullScreen={false}>
             </iframe>
