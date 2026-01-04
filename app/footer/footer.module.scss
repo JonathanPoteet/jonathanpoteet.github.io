@@ -1,10 +1,12 @@
 .footer {
     /* Update your CSS to this */
   text-align: center;
-  background-color: #fff;
-  border-top: darkgray solid 2px;
-  /* Floating Effect */
-  padding: 1.5rem 0rem;
+    background-color: rgba(255, 255, 255, 0.9);
+
+  backdrop-filter: blur(10px); /* This creates the frosted glass effect */
+  -webkit-backdrop-filter: blur(10px);
+
+  padding: 1rem 0rem;
   font-size: x-large;
   position: fixed;
   bottom: 0;
