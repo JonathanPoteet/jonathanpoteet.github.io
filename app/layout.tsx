@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
   description: 'Vanderbilt MSCS & FSU IT Grad. Expert in Full-stack & Distributed Systems development with a focus on BCI, IoT, and Immersive Tech (VR/AR).',
   keywords: ['Jonathan Poteet', 'Software Engineer', 'Web Development', 'React', 'Next.js', 'General Motors', 'Vanderbilt', 'Florida State University', 'BCI', 'Brain-Computer Interface', 'IoT', 'Internet of Things', 'VR', 'Virtual Reality', 'AR', 'Augmented Reality'],
-  referrer: 'origin',
+  referrer: 'strict-origin-when-cross-origin',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon-16x16.png',
