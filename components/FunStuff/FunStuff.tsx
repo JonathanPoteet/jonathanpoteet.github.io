@@ -45,6 +45,7 @@ export default function FunStuff() {
           <p className={styles.expl}>I sometimes go live to talk about my personal projects and game.</p>
           <div className={styles.embedWrapper}>
             <iframe
+              referrerPolicy="no-referrer-when-downgrade"
               src={`https://player.twitch.tv/?channel=${TWITCH_HANDLE}&parent=jonathanpoteet.com`}
               className={styles.twitchViewer}
               allowFullScreen={false}>
