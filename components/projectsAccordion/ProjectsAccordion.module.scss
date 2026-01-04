@@ -17,10 +17,12 @@
   background: transparent;
   border: none;
   font-size: 1.05rem;
+  display: flex;
+  justify-content: space-between;
   font-weight: 600;
   cursor: pointer;
   color: #2d3436;
-  text-align: center;
+  text-align: left;
   width: 100%;
   padding: 0.5rem 1rem;
 }
@@ -51,4 +53,17 @@
   .responsive {
     width: 100%;
   }
+}
+
+
+
+.chevron {
+  margin-left: 10px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0; /* Prevents the arrow from squishing on small screens */
+}
+
+/* State for when the accordion is open */
+.rotated {
+  transform: rotate(180deg);
 }

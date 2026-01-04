@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import s from './ProjectsAccordion.module.scss'
-import { MdAdjust, MdArrowRightAlt } from 'react-icons/md'
+import { MdAdjust, MdArrowDropDown, MdArrowRightAlt } from 'react-icons/md'
 import Link from 'next/link'
 
 const projects = [
@@ -132,7 +132,8 @@ export default function ProjectsAccordion() {
               onClick={() => toggle(i)}
               aria-expanded={openIndex === i}
             >
-              {p.title}
+              <div>{p.title}</div>
+              <MdArrowDropDown className={`${s.chevron} ${openIndex === i ? s.rotated : ''}`} />
             </button>
           </div>
           <div
