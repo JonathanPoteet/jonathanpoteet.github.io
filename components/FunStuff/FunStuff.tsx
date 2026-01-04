@@ -46,8 +46,7 @@ export default function FunStuff() {
           <div className={styles.embedWrapper}>
             <iframe
               src={`https://player.twitch.tv/?channel=${TWITCH_HANDLE}&parent=jonathanpoteet.com&parent=www.jonathanpoteet.com&parent=localhost&muted=true`}
-              className={styles.twitchViewer}
-              allow="autoplay; fullscreen; picture-in-picture">
+              className={styles.twitchViewer}>
             </iframe>
           </div>
           <a href={`https://twitch.tv/${TWITCH_HANDLE}`} target="_blank" rel="noopener noreferrer" className={styles.button}>Follow on Twitch</a>
