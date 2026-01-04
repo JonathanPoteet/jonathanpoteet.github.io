@@ -1,13 +1,19 @@
 .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    background-color: #ffffff;
-    padding: 1rem 0px;
-    text-align: center;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.08);
+    /* Update your CSS to this */
+  text-align: center;
+  background-color: #fff;
+  border-top: darkgray solid 2px;
+  /* Floating Effect */
+  padding: 2rem 0rem;
+  font-size: xx-large;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+  /* Stronger shadow */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  z-index: 1000;
 }
 
 .info {
