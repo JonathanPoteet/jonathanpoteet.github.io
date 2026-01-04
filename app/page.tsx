@@ -30,14 +30,14 @@ export default function Home() {
           
           <h2 className={s.sectionSubHeader}>Education</h2>
           <div className={s.sectionBody}>
+            Vanderbilt University, Nashville, TN <br />
+            December 2025 <br/>
+            Master of Science in Computer Science <br/>
+            
             Florida State University, Tallahassee, FL <br />					                                     
             December 2020 <br /> 
             Bachelor of Science in Information Technology <br/>
             <br/>
-
-            Vanderbilt University, Nashville, TN <br />
-            December 2025 <br/>
-            Master of Science in Computer Science <br/>
           </div>
 
           <h2 className={s.sectionSubHeader}>Experience</h2>
