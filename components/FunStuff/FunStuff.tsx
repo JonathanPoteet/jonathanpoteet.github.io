@@ -46,6 +46,7 @@ export default function FunStuff() {
           <div className={styles.embedWrapper}>
             <iframe
               src={`https://player.twitch.tv/?channel=${TWITCH_HANDLE}&parent=jonathanpoteet.com&parent=www.jonathanpoteet.com&parent=localhost&muted=true`}
+            referrerPolicy="strict-origin-when-cross-origin"
               className={styles.twitchViewer}>
             </iframe>
           </div>
