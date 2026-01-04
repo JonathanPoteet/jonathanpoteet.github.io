@@ -7,6 +7,7 @@ export default function Head() {
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       <link rel="manifest" href="/site.webmanifest" />
       <meta name="theme-color" content="#ffffff" />
+      <meta name="referrer" content="origin"></meta>
     </>
   )
 }
