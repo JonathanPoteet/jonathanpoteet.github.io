@@ -18,6 +18,20 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   manifest: '/site.webmanifest',
+  other: {
+    // Add CSP via meta tag
+    'http-equiv': 'Content-Security-Policy',
+    content: `
+      default-src 'self';
+      script-src 'self' https://platform.twitter.com https://embed.twitch.tv;
+      style-src 'self' 'unsafe-inline';
+      img-src 'self' data: https://static-cdn.jtvnw.net;
+      connect-src 'self' https://api.twitter.com https://api.twitch.tv;
+      frame-src https://twitter.com https://www.twitch.tv;
+      font-src 'self';
+    `,
+    },
+  
   openGraph: {
     title: 'Jonathan Poteet | Software Engineer',
     description: 'Vanderbilt MSCS & FSU IT Grad. Expert in Full-stack & Distributed Systems development with a focus on BCI, IoT, and Immersive Tech (VR/AR).',
