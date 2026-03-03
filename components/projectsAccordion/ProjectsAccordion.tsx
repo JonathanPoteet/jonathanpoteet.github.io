@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 const projects = [
   {
-    title: 'Probabilistic Sensor Verification — Vanderbilt CS6315',
+    title: 'Vanderbilt CS6315 - Probabilistic Sensor Verification — Vanderbilt CS6315',
     content: (
       <div>
         <div>
@@ -28,7 +28,7 @@ const projects = [
     content: (
       <div>
         <div>
-          <MdAdjust /> An endlessly descending dungeon crawler built in Godot 4 using C# and GDScript. The world is generated procedurally at runtime using a chunk-based system, with a dungeon generator that constructs layouts as the player descends deeper into the sinkhole. Includes a minimap that updates dynamically as new areas are revealed. <br />
+          <MdAdjust /> An endlessly descending dungeon crawler built in Godot 4 using C# and GDScript. The world is generated procedurally at runtime using a seeded chunk-based system, with a dungeon generator that constructs layouts as the player descends deeper into the sinkhole. Includes a minimap that updates dynamically as new areas are revealed. <br />
           <MdAdjust /> Work in progress — exploring procedural generation, chunk streaming, and dungeon layout algorithms. <br />
           <MdAdjust /> Tools: Godot 4, C#, GDScript. <br />
           <br />
@@ -131,8 +131,10 @@ const projects = [
     content: (
       <div>
         <div>
-          This is a 3D model I created using Blender and converted to glTF. I set up the Three.js environment and used OrbitControls to navigate the model. <br />
+          This is a low poly 3D model I created using Blender and converted to glTF. I set up the Three.js environment and used OrbitControls to navigate the model. <br />
           <img src="/flower.png" alt="Flower" style={{ maxWidth: '100%', borderRadius: '0.5rem', marginTop: '0.5rem' }} />
+            <br />  
+          <Link href="/flower" target="_blank" rel="noopener noreferrer"><MdArrowRightAlt /> View in 3D</Link>
         </div>
       </div>
     ),
