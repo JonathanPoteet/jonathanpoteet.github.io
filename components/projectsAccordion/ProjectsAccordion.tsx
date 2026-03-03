@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 const projects = [
   {
-    title: 'Vanderbilt CS6315 - Probabilistic Sensor Verification — Vanderbilt CS6315',
+    title: 'Vanderbilt CS6315 - Probabilistic Sensor Verification',
     content: (
       <div>
         <div>
