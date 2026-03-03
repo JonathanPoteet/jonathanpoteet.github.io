@@ -22,9 +22,20 @@ export default function FunStuff() {
             }
         }}
       /> 
-      <h3 id="fun-header" className={styles.header}>What am I up to?</h3>
-            <p>Outside of work, I love heading to conventions, diving into games, following VTubers, learning new skills, and creating projects of my own.</p>
-           <div className={styles.grid}>
+      <h3 id="fun-header" className={styles.sectionHeader}>What am I up to?</h3>
+           <div className={styles.sectionHeader}>
+            <img
+              src="/JonathanPoteetProfessional.jpg"
+              className={styles.sectionImage}
+              alt="Picture of Jonathan Poteet"
+              />
+          </div>
+            <p>
+              I’m a software engineer with a passion for building things. Lately, that’s meant learning Blender and experimenting with Godot to create my own small interactive worlds. Outside of work, I love attending conventions, following VTubers, and sharing my development journey on Twitch and other Social Media. I’m always diving into new games or skills, driven by a simple curiosity for how things work. 
+            </p>
+
+        
+        <div className={styles.grid}>
         
          <article className={styles.card}>
           <h4>Instagram</h4>

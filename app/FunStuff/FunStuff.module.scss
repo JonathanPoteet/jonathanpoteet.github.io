@@ -1,3 +1,4 @@
+@use '../shared.module.scss' as shared;
 .container {
     padding: 0 2.5rem;
   margin-top: 1rem;
@@ -62,7 +63,6 @@
   max-width: 100%;
 }
 
-/* 🔥 Force iframe to behave */
 .embedWrapper iframe {
   max-width: 100% !important;
   width: 100% !important;

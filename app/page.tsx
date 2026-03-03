@@ -1,31 +1,26 @@
 import Link from 'next/link'
 import s from './about.module.scss'
 import ProjectsAccordion from '../components/projectsAccordion/ProjectsAccordion'
-import FunStuff from '../components/FunStuff/FunStuff'
+import FunStuff from './FunStuff/FunStuff'
 import {MdArrowRightAlt, MdAdjust} from 'react-icons/md'
+import NoiseWalker from './noiseWalker/noiseWalker'
 export default function Home() {
   return (
     <main className="min-h-screen">
       <div className={s.aboutStyle}>
       
         <div className={s.aboutSection}>
-          <h1 className={s.sectionHeader}>Jonathan Poteet</h1>
-            <br />
-          <div className={s.sectionHeader}>
-            <img
-              src="/JonathanPoteetProfessional.jpg"
-              className={s.sectionImage}
-              alt="Picture of Jonathan Poteet"
-            />
+          <div className={s.coolSection}>
+            <NoiseWalker />
+            {/* <h1 className={s.sectionHeader}>Jonathan Poteet</h1> */}
           </div>
+          
           <p className={s.lead}>
-            I'm a software engineer based in the U.S.,
-            open to opportunities nationwide — relocation and remote roles are
-            welcome, and I'm actively interested in positions in Atlanta. I
-            design and build full‑stack and distributed systems with a focus on
-            emerging technologies: Internet of Things (IoT) and IoT security,
-            VR/AR and immersive experiences, brain–computer interfaces (BCIs), 
-            and large‑scale data systems for research and production.
+            I’m a Software Engineer specializing in TypeScript and distributed systems, building scalable web architectures with an emphasis on reliable, scalable, and safe system design. My work centers on simulation and high-integrity systems, applying formal verification and model checking to reason about behavior before deployment rather than debugging correctness in production. I focus on complex system modeling and architectures shaped by real-world constraints. <br /><br />
+
+            Outside of engineering, I explore procedural and generative design, combining formal logic with creative system construction. <br /><br />
+
+            Based in the U.S. - Seeking opportunities in Atlanta, Remote, or Nationwide.
           </p>
           
           <h2 className={s.sectionSubHeader}>Education</h2>
