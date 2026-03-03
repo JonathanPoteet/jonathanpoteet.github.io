@@ -6,6 +6,41 @@ import Link from 'next/link'
 
 const projects = [
   {
+    title: 'Probabilistic Sensor Verification — Vanderbilt CS6315',
+    content: (
+      <div>
+        <div>
+          <MdAdjust /> Developed a formal verification framework for probabilistic sensor systems modeled as Discrete-Time Markov Chains in PRISM. <br />
+          <MdAdjust /> Modeled four kitchen environment sensors (gas, stove, water, refrigerator) with theoretical failure probabilities, verified PCTL safety properties including reachability and hazard thresholds. <br />
+          <MdAdjust /> Cross-validated results against Monte Carlo simulation via StormPy to compare formal and empirical methods. <br />
+          <MdAdjust /> Probabilities are theoretical and intended to demonstrate the verification methodology rather than characterize real hardware. <br />
+          <MdAdjust /> Tools: PRISM, StormPy, Python. <br />
+          <br />
+          <Link href="https://github.com/JonathanPoteet/CS6315-Project" target="_blank" rel="noopener noreferrer">
+            CS6315 Project Repository
+          </Link>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: 'Sinkhole — Procedural Dungeon Crawler (WIP)',
+    content: (
+      <div>
+        <div>
+          <MdAdjust /> An endlessly descending dungeon crawler built in Godot 4 using C# and GDScript. The world is generated procedurally at runtime using a chunk-based system, with a dungeon generator that constructs layouts as the player descends deeper into the sinkhole. Includes a minimap that updates dynamically as new areas are revealed. <br />
+          <MdAdjust /> Work in progress — exploring procedural generation, chunk streaming, and dungeon layout algorithms. <br />
+          <MdAdjust /> Tools: Godot 4, C#, GDScript. <br />
+          <br />
+          <Link href="https://github.com/JonathanPoteet/SinkholeProject" target="_blank" rel="noopener noreferrer">
+            Sinkhole Project Repository
+          </Link>
+        </div>
+      </div>
+    ),
+  },
+
+  {
     title: 'Cloud Computing & Distributed Systems – Kubernetes Cluster',
     content: (
       <div>
