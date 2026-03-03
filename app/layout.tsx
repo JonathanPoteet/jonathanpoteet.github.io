@@ -9,8 +9,9 @@ export const metadata: Metadata = {
     default: 'Jonathan Poteet | Software Engineer',
     template: '%s | Jonathan Poteet',
   },
-  description: 'Vanderbilt MSCS & FSU IT Grad. Expert in Full-stack & Distributed Systems development with a focus on BCI, IoT, and Immersive Tech (VR/AR).',
-  keywords: ['Jonathan Poteet', 'Software Engineer', 'Web Development', 'React', 'Next.js', 'General Motors', 'Vanderbilt', 'Florida State University', 'BCI', 'Brain-Computer Interface', 'IoT', 'Internet of Things', 'VR', 'Virtual Reality', 'AR', 'Augmented Reality'],
+  description: 'Full-stack software engineer specializing in TypeScript, distributed systems, and modern web frameworks. Building toward formal verification and simulation, with creative interests in procedural art and technical artistry.',
+  keywords: ['Jonathan Poteet', 'Software Engineer', 'Web Development', 'React', 'Next.js', 'General Motors', 'Vanderbilt', 'Florida State University', 'IoT', 'Internet of Things', 'VR', 'Virtual Reality', 'AR', 'Augmented Reality', 'formal verification', 'simulation', 'PRISM', 'StormPy', 'TypeScript', 
+'Angular', 'distributed systems', 'generative art', 'Godot', 'Vanderbilt MSCS'],
   referrer: 'strict-origin-when-cross-origin',
   icons: {
     icon: '/favicon.ico',
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
   
   openGraph: {
     title: 'Jonathan Poteet | Software Engineer',
-    description: 'Vanderbilt MSCS & FSU IT Grad. Expert in Full-stack & Distributed Systems development with a focus on BCI, IoT, and Immersive Tech (VR/AR).',
+    description: 'Full-stack software engineer specializing in TypeScript, distributed systems, and modern web frameworks. Building toward formal verification and simulation, with creative interests in procedural art and technical artistry.',
     url: 'https://jonathanpoteet.com',
     siteName: 'Jonathan Poteet',
     locale: 'en_US',
@@ -82,8 +83,16 @@ export default function RootLayout({
         name: 'Vanderbilt University',
       },
     ],
-    sameAs: ['https://github.com/JonathanPoteet'],
-  }
+    seeks: {
+      "@type": "JobPosting",
+      "title": "Software Engineer"
+    },
+    sameAs: [
+    'https://github.com/JonathanPoteet',
+    'https://www.linkedin.com/in/jonathan-poteet/',
+    'https://twitter.com/teetopjon',
+    'https://www.twitch.tv/teetopjon',],
+    }
 
   return (
     <html lang="en" className={signika.className}>
