@@ -29,9 +29,16 @@ export default function Home() {
             December 2025 <br/>
             Master of Science in Computer Science <br/>
             <br/>
-            Florida State University, Tallahassee, FL <br />					                                     
+            Florida State University, Tallahassee, FL <br />
             December 2020 <br /> 
             Bachelor of Science in Information Technology <br/>
+
+            <p>
+              Certifications:<br />
+              • Security+ from CompTIA – <a href="https://www.credly.com/badges/5f007ade-e1f1-4edf-aa60-169fc0c4a657/public_url" target="_blank" rel="noopener noreferrer">
+                Credly Badge
+              </a>
+            </p>
           </div>
 
           <h2 className={s.sectionSubHeader}>Experience</h2>
