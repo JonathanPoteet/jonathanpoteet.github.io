@@ -31,7 +31,7 @@ export default function FunStuff() {
               />
           </div>
             <p>
-              I’m a software engineer with a passion for building things. Lately, that’s meant learning Blender and experimenting with Godot to create my own small interactive worlds. Outside of work, I love attending conventions, following VTubers, and sharing my development journey on Twitch and other Social Media. I’m always diving into new games or skills, driven by a simple curiosity for how things work. 
+              I’m a software engineer with a passion for building things. Lately, that’s meant learning Blender and experimenting with Godot to create my own small interactive worlds. Outside of work, I love attending conventions, following VTubers, and sharing my development journey on Twitch and other social media. I’m always diving into new games or skills, driven by a simple curiosity for how things work. 
             </p>
 
         
