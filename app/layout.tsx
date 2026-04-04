@@ -83,10 +83,6 @@ export default function RootLayout({
         name: 'Vanderbilt University',
       },
     ],
-    seeks: {
-      "@type": "JobPosting",
-      "title": "Software Engineer"
-    },
     sameAs: [
     'https://github.com/JonathanPoteet',
     'https://www.linkedin.com/in/jonathan-poteet/',
