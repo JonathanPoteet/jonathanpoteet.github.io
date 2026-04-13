@@ -78,7 +78,6 @@ const NoiseWalker = () => {
       const hasH1 = !!h1Ref.current;
       
       // Trail (slightly fade previous frame)
-      ctx.fillStyle = 'rgba(212, 255, 19, 0)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       if (hasH1) {
@@ -93,7 +92,7 @@ const NoiseWalker = () => {
         };
 
         walker.current.angle += (Math.random() - 0.5) * 0.5;
-        const speed = 2; // faster movement
+        const speed = .75; // faster movement
         let nextX = walker.current.x + Math.cos(walker.current.angle) * speed;
         let nextY = walker.current.y + Math.sin(walker.current.angle) * speed;
 
@@ -109,14 +108,6 @@ const NoiseWalker = () => {
           nextY = walker.current.y + Math.sin(walker.current.angle) * speed * 1.5;
         }
 
-        // draw path line
-        ctx.beginPath();
-        ctx.strokeStyle = '#1cddff';
-        ctx.lineWidth = 1;
-        ctx.moveTo(walker.current.x, walker.current.y);
-        ctx.lineTo(nextX, nextY);
-        ctx.stroke();
-
         // draw glowing ball at the new position
         const ballRadius = Math.max(6, Math.min(30, canvas.width * 0.2));
         ctx.save();
@@ -129,8 +120,6 @@ const NoiseWalker = () => {
         walker.current.x = nextX;
         walker.current.y = nextY;
       } else {
-        // no h1 yet: still apply random walk so when the h1 appears
-        // the walker has a sensible position
         walker.current.angle += (Math.random() - 0.5) * 0.5;
         walker.current.x += Math.cos(walker.current.angle) * 1.5;
         walker.current.y += Math.sin(walker.current.angle) * 1.5;
