@@ -17,7 +17,7 @@
     "@use-gesture/react": "^10.3.1",
     "eslint": "^9.38.0",
     "eslint-config-next": "^16.0.1",
-    "next": "canary",
+    "next": "^16.3.0-canary.22",
     "react": "^19.2.3",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",

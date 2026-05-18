@@ -32,12 +32,14 @@ export default function Home() {
             Florida State University, Tallahassee, FL <br />
             December 2020 <br /> 
             Bachelor of Science in Information Technology <br/>
+            Business Minor <br />
 
             <p>
               Certifications:<br />
               • Security+ from CompTIA – <a href="https://www.credly.com/badges/5f007ade-e1f1-4edf-aa60-169fc0c4a657/public_url" target="_blank" rel="noopener noreferrer">
                 Credly Badge
-              </a>
+              </a><br />
+              • Global Citizenship Certificate, Florida State University <br />
             </p>
           </div>
 
@@ -69,6 +71,16 @@ export default function Home() {
         <div className={s.projectSection}>
           <h2 className={s.sectionSubHeader}>Projects</h2>
           <ProjectsAccordion />
+        </div>
+
+        <div className={s.projectSection}>
+          <h2 className={s.sectionSubHeader}>Campus & Community Involvement</h2>
+          <div className={s.sectionBody}>
+            • Study Abroad: FSU International Programs - London, England, Summer 2019 <br />
+            • Air Force ROTC (AFROTC) - Detachment 145, 2017 - 2018 <br />
+            • Florida American Legion Boys State - Delegate, 2016 <br />
+            • Eagle Scout, Boy Scouts of America, 2016 <br />
+          </div>
         </div>
           <FunStuff />
         </div>

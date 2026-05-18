@@ -6,7 +6,52 @@ import Link from 'next/link'
 
 const projects = [
   {
-    title: 'Vanderbilt CS6315 - Probabilistic Sensor Verification',
+    title: 'General Motors – My Orders Page: Frontend & Checkout Integration Jul 2023 - Dec 2025',
+    content: (
+      <div>
+        <div>
+          <MdAdjust /> Managed the My Orders page on <Link href="https://www.cadillaceurope.com" target="_blank" rel="noopener noreferrer">cadillaceurope.com</Link>, enabling customers to view and track vehicle orders across European markets. <br />
+          <MdAdjust /> Worked within the D2C and Dash teams to enhance order visibility, integrating financial, logistical, and vehicle details (make, model, trim, RPO/parts) through Strapi CMS and connected APIs. <br />
+          <MdAdjust /> Developed and maintained frontend components using Next.js and TypeScript, ensuring localization support for multiple regions (FR, SE, CH, DE). <br />
+          <MdAdjust /> Migrated the My Orders app to Solid.js within the Dash monorepo, improving performance, maintainability, and code reuse. <br />
+          <MdAdjust /> Collaborated with backend teams and QA engineers to resolve defects, optimize API calls, and strengthen data integrity and security. <br />
+          <MdAdjust /> Participated in agile sprints using Jira, documented processes in Confluence, and contributed to CI/CD pipeline improvements for streamlined releases. <br />
+          <MdAdjust /> Contributed to the integration of Adyen for checkout, supporting secure, reliable, and compliant payment processing within the My Orders workflow. <br />
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: 'General Motors – Service Workbench Mar 2021 - Jun 2023',
+    content: (
+      <div>
+        <div>
+          <MdAdjust /> Created new frontend features and refactored legacy Angular code for strict mode migration on the General Motors Service Workbench platform. <br />
+          <MdAdjust /> Improved maintainability by modernizing legacy components, applying Angular best practices, and enhancing code quality across a 1.5-year effort. <br />
+          <MdAdjust /> Collaborated with UX, backend, and QA teams to deliver user-facing functionality while preserving existing workflows. <br />
+          <MdAdjust /> Focused on frontend stability, developer productivity, and long-term codebase modernization. <br />
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: 'Sinkhole — Procedural Dungeon Crawler Jan 2026 - Present',
+    content: (
+      <div>
+        <div>
+          <MdAdjust /> An endlessly descending dungeon crawler built in Godot 4 using C# and GDScript. The world is generated procedurally at runtime using a seeded chunk-based system, with a dungeon generator that constructs layouts as the player descends deeper into the sinkhole. Includes a minimap that updates dynamically as new areas are revealed. <br />
+          <MdAdjust /> Work in progress — exploring procedural generation, chunk streaming, and dungeon layout algorithms. <br />
+          <MdAdjust /> Tools: Godot 4, C#, GDScript. <br />
+          <br />
+          <Link href="https://github.com/JonathanPoteet/SinkholeProject" target="_blank" rel="noopener noreferrer">
+            Sinkhole Project Repository
+          </Link>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: 'Probabilistic Sensor Verification Oct 2025 - Nov 2025',
     content: (
       <div>
         <div>
@@ -24,24 +69,39 @@ const projects = [
     ),
   },
   {
-    title: 'Sinkhole — Procedural Dungeon Crawler (WIP)',
+    title: 'World State AI — Resource Optimization Simulation Aug 2025 - Oct 2025',
     content: (
       <div>
         <div>
-          <MdAdjust /> An endlessly descending dungeon crawler built in Godot 4 using C# and GDScript. The world is generated procedurally at runtime using a seeded chunk-based system, with a dungeon generator that constructs layouts as the player descends deeper into the sinkhole. Includes a minimap that updates dynamically as new areas are revealed. <br />
-          <MdAdjust /> Work in progress — exploring procedural generation, chunk streaming, and dungeon layout algorithms. <br />
-          <MdAdjust /> Tools: Godot 4, C#, GDScript. <br />
+          <MdAdjust /> Engineered an incremental expected utility algorithm to evaluate and rank action schedules using calculated reward and utility functions. <br />
+          <MdAdjust /> Implemented a parser to translate complex state transitions into executable schedules, identifying optimal resource trades to maximize global state stability. <br />
+          <MdAdjust /> Developed scalable weighting models for diverse resource types, enabling simulation of international trade and transformation resource loops. <br />
+          <MdAdjust /> Focused on resource optimization, decision logic, and stability modeling for a world-state simulation. <br />
           <br />
-          <Link href="https://github.com/JonathanPoteet/SinkholeProject" target="_blank" rel="noopener noreferrer">
-            Sinkhole Project Repository
-          </Link>
+          <Link href="https://github.com/JonathanPoteet/world-state-ai" target="_blank" rel="noopener noreferrer">World State AI Repository</Link>
         </div>
       </div>
     ),
   },
-
   {
-    title: 'Cloud Computing & Distributed Systems – Kubernetes Cluster',
+    title: 'Model-Integrated Computing - Turtle Graphics Studio Oct 2024 - Dec 2024',
+    content: (
+      <div>
+        <div>
+          <MdAdjust /> Explored Domain-Specific Modeling Languages (DSMLs) through the development of a visual Turtle Graphics design studio in WebGME. <br />
+          <MdAdjust /> Built a modeling environment enabling users to create Turtle Graphics programs visually, defining both abstract syntax (command relationships) and concrete syntax (graphical notation). <br />
+          <MdAdjust /> Implemented a model-to-code transformation pipeline to generate executable code from user-defined models, producing visual outputs aligned with intended designs. <br />
+          <MdAdjust /> Developed validation and verification plugins, including a loop detector, to prevent invalid command sequences and infinite loops, ensuring model correctness and execution safety. <br />
+          <MdAdjust /> Integrated MongoDB for storing user-created designs with full support for importing and exporting command sequences. <br />
+          <MdAdjust /> Applied metamodeling and DSML principles for automated code generation, formal verification, and interactive visual programming. <br />
+          <br />
+          <Link href="https://github.com/JonathanPoteet/cs6388-50-mini-project" target="_blank" rel="noopener noreferrer">Turtle Graphics Design Studio With Code Generation</Link>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: 'Kubernetes Cluster for Distributed Systems Oct 2024 - Nov 2024',
     content: (
       <div>
         <div>
@@ -59,24 +119,7 @@ const projects = [
     ),
   },
   {
-    title: 'Model-Integrated Computing – Turtle Graphics Design Studio, Metamodeling for Code Generation',
-    content: (
-      <div>
-        <div>
-          <MdAdjust /> Explored Domain-Specific Modeling Languages (DSMLs) through the development of a visual Turtle Graphics design studio in WebGME. <br />
-          <MdAdjust /> Built a modeling environment enabling users to create Turtle Graphics programs visually, defining both abstract syntax (command relationships) and concrete syntax (graphical notation). <br />
-          <MdAdjust /> Implemented a model-to-code transformation pipeline to generate executable code from user-defined models, producing visual outputs aligned with intended designs. <br />
-          <MdAdjust /> Developed validation and verification plugins, including a loop detector, to prevent invalid command sequences and infinite loops, ensuring model correctness and execution safety. <br />
-          <MdAdjust /> Integrated MongoDB for storing user-created designs with full support for importing and exporting command sequences. <br />
-          <MdAdjust /> Applied metamodeling and DSML principles for automated code generation, formal verification, and interactive visual programming. <br />
-          <br />
-          <Link href="https://github.com/JonathanPoteet/cs6388-50-mini-project" target="_blank" rel="noopener noreferrer">Turtle Graphics Design Studio With Code Generation</Link>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'Predictive Modeling & Responsible AI – Random Forest Pipeline',
+    title: 'Predictive Modeling & Responsible AI – Random Forest Pipeline Jun 2025 - Jul 2025',
     content: (
       <div>
         <div>
@@ -86,22 +129,6 @@ const projects = [
           <MdAdjust /> Conducted experiments in Python and Jupyter Notebooks, leveraging libraries such as pandas, scikit-learn, and matplotlib for analysis and visualization. <br />
           <br />
           <Link href="https://github.com/JonathanPoteet/Projects/blob/main/Special_Topics_AI_Predictive_Model.ipynb" target="_blank" rel="noopener noreferrer">Special Topics - AI Predictive Model</Link>
-        </div>
-      </div>
-    ),
-  },
-  {
-    title: 'General Motors – My Orders Page: Frontend & Checkout Integration',
-    content: (
-      <div>
-        <div>
-          <MdAdjust /> Managed the My Orders page on <Link href="https://www.cadillaceurope.com" target="_blank" rel="noopener noreferrer">cadillaceurope.com</Link>, enabling customers to view and track vehicle orders across European markets. <br />
-          <MdAdjust /> Worked within the D2C and Dash teams to enhance order visibility, integrating financial, logistical, and vehicle details (make, model, trim, RPO/parts) through Strapi CMS and connected APIs. <br />
-          <MdAdjust /> Developed and maintained frontend components using Next.js and TypeScript, ensuring localization support for multiple regions (FR, SE, CH, DE). <br />
-          <MdAdjust /> Migrated the My Orders app to Solid.js within the Dash monorepo, improving performance, maintainability, and code reuse. <br />
-          <MdAdjust /> Collaborated with backend teams and QA engineers to resolve defects, optimize API calls, and strengthen data integrity and security. <br />
-          <MdAdjust /> Participated in agile sprints using Jira, documented processes in Confluence, and contributed to CI/CD pipeline improvements for streamlined releases. <br />
-          <MdAdjust /> Contributed to the integration of Adyen for checkout, supporting secure, reliable, and compliant payment processing within the My Orders workflow. <br />
         </div>
       </div>
     ),
@@ -161,26 +188,35 @@ export default function ProjectsAccordion() {
 
   return (
     <div className={s.accordion}>
-      {projects.map((p, i) => (
-        <div key={i} className={s.accordionItem}>
-          <div className={s.accordionHeader}>
-            <button
-              className={s.accordionButton}
-              onClick={() => toggle(i)}
-              aria-expanded={openIndex === i}
+      {projects.map((p, i) => {
+        const titleMatch = p.title.match(/(.+?)(?:\s[-–]\s*|\s)((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec).+|(?:\d{4}(?:\s*-\s*(?:Present|\d{4}))?(?:\s+Project)?))$/)
+        const titleMain = titleMatch ? titleMatch[1] : p.title
+        const titleDate = titleMatch ? titleMatch[2] : null
+
+        return (
+          <div key={i} className={s.accordionItem}>
+            <div className={s.accordionHeader}>
+              <button
+                className={s.accordionButton}
+                onClick={() => toggle(i)}
+                aria-expanded={openIndex === i}
+              >
+                <div>
+                  {titleMain}
+                  {titleDate && <span className={s.date}>{titleDate}</span>}
+                </div>
+                <MdArrowDropDown className={`${s.chevron} ${openIndex === i ? s.rotated : ''}`} />
+              </button>
+            </div>
+            <div
+              className={s.accordionPanel}
+              style={{ display: openIndex === i ? 'block' : 'none' }}
             >
-              <div>{p.title}</div>
-              <MdArrowDropDown className={`${s.chevron} ${openIndex === i ? s.rotated : ''}`} />
-            </button>
+              {p.content}
+            </div>
           </div>
-          <div
-            className={s.accordionPanel}
-            style={{ display: openIndex === i ? 'block' : 'none' }}
-          >
-            {p.content}
-          </div>
-        </div>
-      ))}
+        )
+      })}
     </div>
   )
 }
