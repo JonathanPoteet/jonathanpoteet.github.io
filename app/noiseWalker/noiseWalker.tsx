@@ -6,12 +6,21 @@ const NoiseWalker = () => {
   const h1Ref = useRef<HTMLHeadingElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const walker = useRef({ x: 0, y: 0, angle: Math.random() * Math.PI * 2 });
+  const animFrame = useRef(0);
+  const tickCounter = useRef(0);
+  const spriteRef = useRef<HTMLImageElement | null>(null);
 
  useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext('2d');
     let animationFrameId = NaN;
     if (!canvas || !ctx || !containerRef.current) return;
+
+    if (!spriteRef.current) {
+    const img = new Image();
+    img.src = '/cat-sprite-spritesheet.png';
+    spriteRef.current = img;
+  }
 
     const setup = () => {
       canvas.style.width = '100%';
@@ -74,12 +83,39 @@ const NoiseWalker = () => {
         return;
       }
 
-      // allow h1 to be temporarily absent without stopping the loop
       const hasH1 = !!h1Ref.current;
       
-      // Trail (slightly fade previous frame)
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#c8ff00';
+      ctx.fillRect(-1, -1, canvas.width + 2, canvas.height + 2);
 
+      // 2. Base Vector Movement
+      walker.current.angle += (Math.random() - 0.5) * 0.5;
+      const speed = hasH1 ? 0.75 : 1.5; 
+      let nextX = walker.current.x + Math.cos(walker.current.angle) * speed;
+      let nextY = walker.current.y + Math.sin(walker.current.angle) * speed;
+
+      // 3. Global Canvas Wall Collisions (Always run this so it never glitters or breaks)
+      const spritePadding = 25; // Raised slightly to safely buffer the horse dimensions
+
+      // Left & Right Walls
+      if (nextX < spritePadding) {
+        nextX = spritePadding;
+        walker.current.angle = Math.PI - walker.current.angle;
+      } else if (nextX > canvas.width - spritePadding) {
+        nextX = canvas.width - spritePadding;
+        walker.current.angle = Math.PI - walker.current.angle;
+      }
+
+      // Top & Bottom Walls
+      if (nextY < spritePadding) {
+        nextY = spritePadding;
+        walker.current.angle = -walker.current.angle;
+      } else if (nextY > canvas.height - spritePadding) {
+        nextY = canvas.height - spritePadding;
+        walker.current.angle = -walker.current.angle;
+      }
+
+      // 4. Central H1 Card Obstacle Collision
       if (hasH1) {
         const h1Rect = h1Ref.current!.getBoundingClientRect();
         const containerRect = containerRef.current.getBoundingClientRect();
@@ -91,48 +127,68 @@ const NoiseWalker = () => {
           bottom: h1Rect.bottom - containerRect.top,
         };
 
-        walker.current.angle += (Math.random() - 0.5) * 0.5;
-        const speed = .75; // faster movement
-        let nextX = walker.current.x + Math.cos(walker.current.angle) * speed;
-        let nextY = walker.current.y + Math.sin(walker.current.angle) * speed;
-
         if (
           nextX > obstacle.left &&
           nextX < obstacle.right &&
           nextY > obstacle.top &&
           nextY < obstacle.bottom
         ) {
-          // bounce and move outward so we don't get stuck inside
+          // Bounce turning completely around away from collision point
           walker.current.angle += Math.PI;
           nextX = walker.current.x + Math.cos(walker.current.angle) * speed * 1.5;
           nextY = walker.current.y + Math.sin(walker.current.angle) * speed * 1.5;
         }
 
-        // draw glowing ball at the new position
-        const ballRadius = Math.max(6, Math.min(30, canvas.width * 0.2));
-        ctx.save();
-        ctx.fillStyle = '#05eeff';
-        ctx.beginPath();
-        ctx.arc(nextX, nextY, ballRadius, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
+        // 5. Sprite Sheet Metrics & Slicing
+        const frameWidth = 100;   
+        const frameHeight = 100;  
+        const renderSize = 100; 
+        const sourceY = 0; // Row 0: Facing Right Idle Loop  
+        // let sourceY = 1 * frameHeight; // Row 1: Facing Right Running Loop
 
-        walker.current.x = nextX;
-        walker.current.y = nextY;
-      } else {
-        walker.current.angle += (Math.random() - 0.5) * 0.5;
-        walker.current.x += Math.cos(walker.current.angle) * 1.5;
-        walker.current.y += Math.sin(walker.current.angle) * 1.5;
+        const totalColumns = 4; // Total frames in the running animation
+        tickCounter.current += 1;
+        if (tickCounter.current % 25 === 0) { 
+          animFrame.current = (animFrame.current + 1) % totalColumns;
+        }
+        const sourceX = animFrame.current * frameWidth;
+        
+        // 6. Final Execution Render
+        ctx.save();
+
+      const isMovingLeft = nextX < walker.current.x;
+
+        if (spriteRef.current) {
+          if (!isMovingLeft) {
+            ctx.translate(nextX, nextY);
+            ctx.scale(-1, 1); // Mirror horizontally
+            ctx.drawImage(
+              spriteRef.current,
+              sourceX, sourceY,
+              frameWidth, frameHeight,
+              -renderSize / 2, -renderSize / 2,
+              renderSize, renderSize
+            );
+          } else {
+            ctx.drawImage(
+              spriteRef.current,
+              sourceX, sourceY,
+              frameWidth, frameHeight,
+              nextX - renderSize / 2,
+              nextY - renderSize / 2,
+              renderSize, renderSize
+            );
+          }
+        }
+        ctx.restore();
       }
 
-      // Screen wrap
-      if (walker.current.x < 0) walker.current.x = canvas.width;
-      if (walker.current.x > canvas.width) walker.current.x = 0;
-      if (walker.current.y < 0) walker.current.y = canvas.height;
-      if (walker.current.y > canvas.height) walker.current.y = 0;
+      // 7. Commit calculated positions to persistent ref state
+      walker.current.x = nextX;
+      walker.current.y = nextY;
 
       animationFrameId = requestAnimationFrame(draw);
-    };
+  };
 
     setup();
     // start animation

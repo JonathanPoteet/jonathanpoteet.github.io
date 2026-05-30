@@ -27,3 +27,11 @@ body {
   background-attachment: fixed; /* Keeps the gradient anchored to the screen while you scroll */
   background-repeat: no-repeat;
 }
+
+
+/* Hide the pixelated horse on smaller screens to prevent layout issues and improve performance */
+@media (max-width: 768px) {
+  .pixelatedHorse {
+    display: none !important;
+  }
+}

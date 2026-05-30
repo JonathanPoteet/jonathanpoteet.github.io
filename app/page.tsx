@@ -84,6 +84,23 @@ export default function Home() {
         </div>
           <FunStuff />
         </div>
+
+        <img 
+        src="/horse-sprite.png" // Update to your active file if needed
+        alt="Decorative Horse Sprite"
+        className="pixelatedHorse"
+        style={{
+          position: 'fixed',
+          right: '10px',          // Slightly off the absolute edge so it isn't cut off
+          bottom: '5rem',         // MATCH THIS to your body padding-bottom (5rem) so it sits exactly on top of the footer!
+          width: '200px',         // Explicitly sets the size to 2x (100px * 2)
+          height: '200px',        // Explicitly sets the size to 2x
+          pointerEvents: 'none', 
+          zIndex: 10          
+        }}
+      />
+
+
     </main>
   )
 }
