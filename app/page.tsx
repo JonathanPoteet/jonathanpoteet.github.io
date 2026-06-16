@@ -12,13 +12,12 @@ export default function Home() {
         <div className={s.aboutSection}>
           <div className={s.coolSection}>
             <NoiseWalker />
-            {/* <h1 className={s.sectionHeader}>Jonathan Poteet</h1> */}
           </div>
           
           <p className={s.lead}>
             I’m a Software Engineer specializing in TypeScript and distributed systems, building scalable web architectures with an emphasis on reliable, scalable, and safe system design. My work centers on simulation and high-integrity systems, applying formal verification and model checking to reason about behavior before deployment rather than debugging correctness in production. I focus on complex system modeling and architectures shaped by real-world constraints. <br /><br />
 
-            Outside of engineering, I explore procedural and generative design, combining formal logic with creative system construction. <br /><br />
+            Outside of engineering, I explore procedural generation and interactive design, combining formal logic with creative system construction. <br /><br />
 
             Based in the U.S. - Seeking opportunities in Atlanta, Remote, or Nationwide.
           </p>
@@ -43,7 +42,9 @@ export default function Home() {
             </p>
           </div>
 
-          <h2 className={s.sectionSubHeader}>Experience</h2>
+          <h2 className={s.sectionSubHeader} id="experience">
+            Experience
+          </h2>
           <div className={s.experience}>
             <div className={s.company}>General Motors, Roswell, GA</div>
             <div className={s.date}>March 2021-December 2025</div>
@@ -69,12 +70,16 @@ export default function Home() {
         </div>
 
         <div className={s.projectSection}>
-          <h2 className={s.sectionSubHeader}>Projects</h2>
+          <h2 className={s.sectionSubHeader} id="projects">
+            Projects
+          </h2>
           <ProjectsAccordion />
         </div>
 
         <div className={s.projectSection}>
-          <h2 className={s.sectionSubHeader}>Campus & Community Involvement</h2>
+          <h2 className={s.sectionSubHeader} id="campus-involvement">
+            Campus & Community Involvement
+          </h2>
           <div className={s.sectionBody}>
             • Study Abroad: FSU International Programs - London, England, Summer 2019 <br />
             • Air Force ROTC (AFROTC) - Detachment 145, 2017 - 2018 <br />
@@ -86,7 +91,7 @@ export default function Home() {
         </div>
 
         <img 
-        src="/horse-sprite.png" // Update to your active file if needed
+        src="/horse-sprite.webp" 
         alt="Decorative Horse Sprite"
         className="pixelatedHorse"
         style={{

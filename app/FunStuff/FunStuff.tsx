@@ -11,7 +11,7 @@ const INSTA_HANDLE = "poteetjonathan"
 
 export default function FunStuff() {
   return (
-    <section className={styles.container} aria-labelledby="fun-header" id="hobbies-section">
+    <section className={styles.container} aria-labelledby="fun-header" id="who-is-jonathan-poteet">
       <Script 
         src="https://www.instagram.com/embed.js"
         strategy="afterInteractive" 
