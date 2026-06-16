@@ -60,6 +60,7 @@ export default function FunStuff() {
             referrerPolicy="strict-origin-when-cross-origin"
               className={styles.twitchViewer}
               allow='encrypted-media; fullscreen; picture-in-picture; autoplay'
+              loading="lazy"
               >
             </iframe>
           </div>
