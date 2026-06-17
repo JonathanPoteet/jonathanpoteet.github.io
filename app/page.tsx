@@ -101,7 +101,6 @@ export default function Home() {
           width: '200px',         // Explicitly sets the size to 2x (100px * 2)
           height: '200px',        // Explicitly sets the size to 2x
           pointerEvents: 'none', 
-          zIndex: 10          
         }}
       />
 
