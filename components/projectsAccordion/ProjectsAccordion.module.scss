@@ -81,3 +81,170 @@
 .rotated {
   transform: rotate(180deg);
 }
+
+/* Tag Filter Styles */
+.tagFilter {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+}
+
+.tagLabel {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #2d3436;
+  font-size: 0.95rem;
+}
+
+.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  padding: 0.4rem 0.75rem;
+  border: 2px solid #b2bec3;
+  background: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #2d3436;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+
+  &:hover {
+    border-color: #0984e3;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(9, 132, 227, 0.2);
+  }
+}
+
+.tagMajor {
+  border-color: #0984e3;
+  color: #0984e3;
+  font-weight: 600;
+}
+
+.tagMinor {
+  border-color: #6c5ce7;
+  color: #6c5ce7;
+  font-weight: 500;
+}
+
+.tagTrivial {
+  border-color: #95a5a6;
+  color: #636e72;
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+.tagActive {
+  background: #0984e3;
+  color: white;
+  border-color: #0984e3;
+
+  &:hover {
+    background: #0770c9;
+    border-color: #0770c9;
+  }
+
+  &.tagMajor {
+    background: #0984e3;
+  }
+
+  &.tagMinor {
+    background: #6c5ce7;
+    border-color: #6c5ce7;
+  }
+
+  &.tagTrivial {
+    background: #95a5a6;
+    border-color: #95a5a6;
+  }
+}
+
+.clearTags {
+  padding: 0.4rem 0.75rem;
+  border: none;
+  background: #e17055;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  margin-right: 0.5rem;
+
+  &:hover {
+    background: #d63031;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(225, 112, 85, 0.2);
+  }
+}
+
+.resultCount {
+  font-size: 0.85rem;
+  color: #636e72;
+  font-weight: 500;
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
+.noResults {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #636e72;
+  font-size: 1rem;
+}
+
+.projectTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 0.4rem;
+}
+
+.projectTag {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  background: #0984e3;
+  color: white;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 700px) {
+  .tagContainer {
+    gap: 0.4rem;
+  }
+
+  .tag {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  .clearTags {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  .resultCount {
+    display: block;
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+}

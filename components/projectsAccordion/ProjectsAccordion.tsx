@@ -4,38 +4,60 @@ import s from './ProjectsAccordion.module.scss'
 import { MdAdjust, MdArrowDropDown, MdArrowRightAlt } from 'react-icons/md'
 import Link from 'next/link'
 
+// Define tag categories - major shows first, then minor, then trivial
+// Unspecified tags default to trivial
+const tagCategories = {
+  major: ['React', 'TypeScript', 'Python', 'Java', 'C#', 'Angular', 'Blender', 'Databases', 'Cloud', 'DevOps'],
+  minor: ['Next.js', 'DevOps', 'Ansible', 'Docker', 'Kubernetes', 'Godot', 'Microservices', 'AI/ML'],
+}
+
+const getTagCategory = (tag: string): number => {
+  if (tagCategories.major.includes(tag)) return 0
+  if (tagCategories.minor.includes(tag)) return 1
+  return 2 // trivial
+}
+
 const projects = [
   {
     title: 'General Motors – My Orders Page: Frontend & Checkout Integration Jul 2023 - Dec 2025',
+    tags: ['React', 'Next.js', 'TypeScript', 'Solid.js', 'DevOps', 'Java', 'Cloud', 'Databases', 'PostgreSQL', 'Microservices', 'Kubernetes', 'Docker'],
     content: (
       <div>
         <div>
-          <MdAdjust /> Managed the My Orders page on <Link href="https://www.cadillaceurope.com" target="_blank" rel="noopener noreferrer">cadillaceurope.com</Link>, enabling customers to view and track vehicle orders across European markets. <br />
-          <MdAdjust /> Worked within the D2C and Dash teams to enhance order visibility, integrating financial, logistical, and vehicle details (make, model, trim, RPO/parts) through Strapi CMS and connected APIs. <br />
-          <MdAdjust /> Developed and maintained frontend components using Next.js and TypeScript, ensuring localization support for multiple regions (FR, SE, CH, DE). <br />
-          <MdAdjust /> Migrated the My Orders app to Solid.js within the Dash monorepo, improving performance, maintainability, and code reuse. <br />
-          <MdAdjust /> Collaborated with backend teams and QA engineers to resolve defects, optimize API calls, and strengthen data integrity and security. <br />
-          <MdAdjust /> Participated in agile sprints using Jira, documented processes in Confluence, and contributed to CI/CD pipeline improvements for streamlined releases. <br />
+          <MdAdjust /> Directed frontend development for the My Orders experience across four European markets (FR, SE, CH, DE), building with Next.js, React, TypeScript, and Java while integrating Strapi CMS and enterprise APIs for localized vehicle and financial data. <br />
+          <MdAdjust /> Managed the My Orders page on <Link href="https://www.cadillaceurope.com" target="_blank" rel="noopener noreferrer">cadillaceurope.com</Link>, enabling customers to view, track, and manage vehicle orders with comprehensive visibility into order status, financial details, and logistical timelines across multiple markets. <br />
+          <MdAdjust /> Worked within the D2C and Dash teams to enhance order visibility, integrating financial, logistical, and vehicle details (make, model, trim, RPO/parts) through Strapi CMS and connected APIs, requiring careful coordination across multiple backend services. <br />
+          <MdAdjust /> Migrated the My Orders app to Solid.js within the Dash monorepo, improving performance, maintainability, and code reuse while reducing bundle size and rendering overhead. <br />
+          <MdAdjust /> Architected Docker and Podman container environments using WSL to build and manage complex microservices, achieving 100% environment parity between development and production. <br />
+          <MdAdjust /> Collaborated with backend teams and QA engineers to resolve defects, optimize API calls, and strengthen data integrity and security across the European platform. <br />
+          <MdAdjust /> Participated in agile sprints using Jira, documented processes in Confluence, and contributed to CI/CD pipeline improvements via Azure DevOps for streamlined releases. <br />
           <MdAdjust /> Contributed to the integration of Adyen for checkout, supporting secure, reliable, and compliant payment processing within the My Orders workflow. <br />
+          <MdAdjust /> Remediated vulnerabilities detected by GitHub Advanced Security and proactively managed third-party dependencies to ensure enterprise compliance. <br />
         </div>
       </div>
     ),
   },
   {
     title: 'General Motors – Service Workbench Mar 2021 - Jun 2023',
+    tags: ['React', 'Angular', 'TypeScript', 'DevOps', 'Java', 'Cloud', 'Databases', 'PostgreSQL', 'Kubernetes', 'Docker'],
     content: (
       <div>
         <div>
-          <MdAdjust /> Created new frontend features and refactored legacy Angular code for strict mode migration on the General Motors Service Workbench platform. <br />
-          <MdAdjust /> Improved maintainability by modernizing legacy components, applying Angular best practices, and enhancing code quality across a 1.5-year effort. <br />
-          <MdAdjust /> Collaborated with UX, backend, and QA teams to deliver user-facing functionality while preserving existing workflows. <br />
-          <MdAdjust /> Focused on frontend stability, developer productivity, and long-term codebase modernization. <br />
+          <MdAdjust /> Technical contributor for the modernization of the enterprise technician web platform, re-engineering legacy architecture with Angular, TypeScript, and Java to improve scalability, maintainability, and responsiveness for thousands of service technicians globally. <br />
+          <MdAdjust /> Created new frontend features and refactored legacy Angular code for strict mode migration, establishing rigorous code quality standards including Angular and ESLint Strict Modes to ensure long-term stability and security. <br />
+          <MdAdjust /> Engineered robust RESTful APIs and backend services using Java and Spring Boot, managing dependencies via Maven and optimizing API discoverability using Spring Boot Swagger. <br />
+          <MdAdjust /> Improved maintainability by modernizing legacy components, applying Angular best practices, and enhancing code quality across a 1.5-year modernization effort. <br />
+          <MdAdjust /> Optimized data interactions through SQL and JOOQ while utilizing Docker and PostgreSQL for containerized database management. <br />
+          <MdAdjust /> Managed end-to-end CI/CD pipelines via Azure DevOps, automating software delivery and reducing manual deployment time significantly. <br />
+          <MdAdjust /> Collaborated with UX, backend, and QA teams to deliver user-facing functionality while preserving existing workflows and maintaining backward compatibility. <br />
+          <MdAdjust /> Managed microfrontends and monitored pods using Kubernetes to ensure high availability and efficient resource utilization. <br />
         </div>
       </div>
     ),
   },
   {
     title: 'Sinkhole — Procedural Dungeon Crawler Jan 2026 - Present',
+    tags: ['C#', 'Godot', 'WIP', "Shaders"],
     content: (
       <div>
         <div>
@@ -51,7 +73,23 @@ const projects = [
     ),
   },
   {
+    title: 'Reactive Microservice Recommender System Jan 2025 - Mar 2025',
+    tags: ['Java', 'Microservices'],
+    content: (
+      <div>
+        <div>
+          <MdAdjust /> Engineered an asynchronous microservice using Spring WebFlux and Project Reactor to parallelize recommendation computations across multiple CPU cores using declarative reactive streams. <br />
+          <MdAdjust /> Implemented client-side HTTP interface proxies and configured Spring Dependency Injection to enable non-blocking inter-service communication between microservices in the distributed system. <br />
+          <MdAdjust /> Built custom caching layers for rapid payload retrieval, optimizing memory efficiency and reducing latency for frequently accessed recommendation data. <br />
+          <MdAdjust /> Authored automated Gradle integration test suites to validate Flux and Mono reactive stream transformations, ensuring correctness of asynchronous pipelines. <br />
+          <MdAdjust /> Demonstrated expertise in reactive architecture patterns, Spring Boot framework capabilities, and high-performance distributed system design. <br />
+        </div>
+      </div>
+    ),
+  },
+  {
     title: 'Probabilistic Sensor Verification Oct 2025 - Nov 2025',
+    tags: ['Python', 'Formal Verification', 'AI/ML'],
     content: (
       <div>
         <div>
@@ -70,6 +108,7 @@ const projects = [
   },
   {
     title: 'World State AI — Resource Optimization Simulation Aug 2025 - Oct 2025',
+    tags: ['Python', 'AI/ML', 'Databases'],
     content: (
       <div>
         <div>
@@ -85,6 +124,7 @@ const projects = [
   },
   {
     title: 'Model-Integrated Computing - Turtle Graphics Studio Oct 2024 - Dec 2024',
+    tags: ['Python', 'Formal Verification', 'MongoDB', 'Databases'],
     content: (
       <div>
         <div>
@@ -102,6 +142,7 @@ const projects = [
   },
   {
     title: 'Kubernetes Cluster for Distributed Systems Oct 2024 - Nov 2024',
+    tags: ['Kubernetes', 'Docker', 'Cloud', 'DevOps', 'Ansible', 'Kafka', "Microservices", 'Databases'],
     content: (
       <div>
         <div>
@@ -120,6 +161,7 @@ const projects = [
   },
   {
     title: 'Predictive Modeling & Responsible AI – Random Forest Pipeline Jun 2025 - Jul 2025',
+    tags: ['Python', 'AI/ML'],
     content: (
       <div>
         <div>
@@ -135,6 +177,7 @@ const projects = [
   },
   {
     title: 'Throwable Ball - 2023 Project',
+    tags: ['React', 'Three.js', 'TypeScript'],
     content: (
       <div>
         <div>
@@ -154,7 +197,28 @@ const projects = [
     ),
   },
   {
+    title: 'Blender Character Model - WIP 2026 - Present',
+    tags: ['Blender', 'WIP', '3D Modeling', 'Rigging', 'Shaders'],
+    content: (
+      <div>
+        <div>
+          A work-in-progress character model being sculpted and refined in Blender. Currently exploring topology, rigging, and material workflows for game-ready assets. <br />
+          <div className={s.video}>
+            <iframe
+              className={s.responsive}
+              src="https://www.youtube.com/embed/Ip7oaUjq2IQ"
+              loading="lazy"
+              title="Blender Character Model Video"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
     title: 'Modeled a Flower - 2023 Project',
+    tags: ['Blender', '3D Modeling', 'Three.js', 'React', 'TypeScript'],
     content: (
       <div>
         <div>
@@ -167,7 +231,34 @@ const projects = [
     ),
   },
   {
+    title: 'Solitaire Game Platform - 2024',
+    tags: ['React', 'Node.js', 'MongoDB', 'Databases'],
+    content: (
+      <div>
+        <div>
+          <MdAdjust /> Built a full-stack solitaire game platform with user authentication and persistent game tracking. <br />
+          <MdAdjust /> Developed the React frontend for an interactive solitaire card game with smooth gameplay mechanics and responsive UI design. <br />
+          <MdAdjust /> Implemented a Node.js backend API with RESTful endpoints for user authentication, game state management, and history retrieval. <br />
+          <MdAdjust /> Designed and implemented MongoDB database schema to store user credentials, game history, statistics, and player progress. <br />
+          <MdAdjust /> Created a secure login system with user registration, authentication tokens, and session management. <br />
+          <MdAdjust /> Developed comprehensive unit tests to ensure backend API reliability and frontend component correctness. <br />
+          <MdAdjust /> Managed the project in GitLab with version control and collaborative development workflow. <br />
+          <div className={s.video} style={{ marginTop: '0.5rem' }}>
+            <iframe
+              className={s.responsive}
+              src="https://www.youtube.com/embed/OmBUJ55484w"
+              loading="lazy"
+              title="Solitaire Game Platform Video"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
     title: "Next.js Website with Three.js integrations",
+    tags: ['React', 'Next.js', 'Three.js', 'TypeScript', 'DevOps'],
     content: (
       <div>
         <div>
@@ -180,43 +271,116 @@ const projects = [
 ]
 
 export default function ProjectsAccordion() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const [selectedTags, setSelectedTags] = useState<string[]>([])
 
-  function toggle(i: number) {
-    setOpenIndex(openIndex === i ? null : i)
+  // Get all unique tags from projects
+  const allTags = Array.from(
+    new Set(projects.flatMap(p => p.tags))
+  ).sort((a, b) => {
+    const aCat = getTagCategory(a)
+    const bCat = getTagCategory(b)
+    if (aCat !== bCat) return aCat - bCat
+    return a.localeCompare(b) // Alphabetical within same category
+  })
+
+  // Filter projects based on selected tags
+  const filteredProjects = selectedTags.length === 0
+    ? projects
+    : projects.filter(p => 
+        selectedTags.some(tag => p.tags.includes(tag))
+      )
+
+  function toggleTag(tag: string) {
+    const newSelectedTags = selectedTags.includes(tag) ? [] : [tag]
+    setSelectedTags(newSelectedTags)
+    
+    // Calculate the first filtered project's index
+    const newFiltered = newSelectedTags.length === 0
+      ? projects
+      : projects.filter(p => 
+          newSelectedTags.some(t => p.tags.includes(t))
+        )
+    
+    const firstFilteredIndex = newFiltered.length > 0 ? projects.indexOf(newFiltered[0]) : 0
+    setOpenIndex(firstFilteredIndex)
   }
 
   return (
     <div className={s.accordion}>
-      {projects.map((p, i) => {
-        const titleMatch = p.title.match(/(.+?)(?:\s[-–]\s*|\s)((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec).+|(?:\d{4}(?:\s*-\s*(?:Present|\d{4}))?(?:\s+Project)?))$/)
-        const titleMain = titleMatch ? titleMatch[1] : p.title
-        const titleDate = titleMatch ? titleMatch[2] : null
-
-        return (
-          <div key={i} className={s.accordionItem}>
-            <div className={s.accordionHeader}>
+      <div className={s.tagFilter}>
+        <div className={s.tagLabel}>Filter by tags:</div>
+        <div className={s.tagContainer}>
+          {allTags.map(tag => {
+            const category = getTagCategory(tag)
+            const categoryClass = category === 0 ? s.tagMajor : category === 1 ? s.tagMinor : s.tagTrivial
+            return (
               <button
-                className={s.accordionButton}
-                onClick={() => toggle(i)}
-                aria-expanded={openIndex === i}
+                key={tag}
+                className={`${s.tag} ${categoryClass} ${selectedTags.includes(tag) ? s.tagActive : ''}`}
+                onClick={() => toggleTag(tag)}
               >
-                <div>
-                  {titleMain}
-                  {titleDate && <span className={s.date}>{titleDate}</span>}
-                </div>
-                <MdArrowDropDown className={`${s.chevron} ${openIndex === i ? s.rotated : ''}`} />
+                {tag}
               </button>
-            </div>
-            <div
-              className={s.accordionPanel}
-              style={{ display: openIndex === i ? 'block' : 'none' }}
-            >
-              {p.content}
-            </div>
+            )
+          })}
+        </div>
+        {selectedTags.length > 0 && (
+          <button
+            className={s.clearTags}
+            onClick={() => setSelectedTags([])}
+          >
+            Clear filters
+          </button>
+        )}
+        {filteredProjects.length > 0 && (
+          <div className={s.resultCount}>
+            Showing {filteredProjects.length} of {projects.length} project{projects.length !== 1 ? 's' : ''}
           </div>
-        )
-      })}
+        )}
+      </div>
+
+      {filteredProjects.length === 0 ? (
+        <div className={s.noResults}>No projects match your filter</div>
+      ) : (
+        filteredProjects.map((p, i) => {
+          const originalIndex = projects.indexOf(p)
+          const titleMatch = p.title.match(/(.+?)(?:\s[-–]\s*|\s)((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec).+|(?:\d{4}(?:\s*-\s*(?:Present|\d{4}))?(?:\s+Project)?))$/)
+          const titleMain = titleMatch ? titleMatch[1] : p.title
+          const titleDate = titleMatch ? titleMatch[2] : null
+
+          return (
+            <div key={i} className={s.accordionItem}>
+              <div className={s.accordionHeader}>
+                <button
+                  className={s.accordionButton}
+                  onClick={() => setOpenIndex(openIndex === originalIndex ? null : originalIndex)}
+                  aria-expanded={openIndex === originalIndex}
+                >
+                  <div>
+                    {titleMain}
+                    {titleDate && <span className={s.date}>{titleDate}</span>}
+                  </div>
+                  <MdArrowDropDown className={`${s.chevron} ${openIndex === originalIndex ? s.rotated : ''}`} />
+                </button>
+              </div>
+              <div
+                className={s.accordionPanel}
+                style={{ display: openIndex === originalIndex ? 'block' : 'none' }}
+              >
+                <div className={s.projectTags}>
+                  {p.tags.map(tag => (
+                    <span key={tag} className={s.projectTag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                {p.content}
+              </div>
+            </div>
+          )
+        })
+      )}
     </div>
   )
 }
