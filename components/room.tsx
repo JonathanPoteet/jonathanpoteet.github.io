@@ -1,6 +1,5 @@
 import { useRef} from 'react'
 import { Canvas, useLoader } from '@react-three/fiber'
-import { useSpring } from 'react-spring'
 import { animated } from '@react-spring/three'
 import { OrbitControls, Plane } from '@react-three/drei'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -10,13 +9,11 @@ function Room (props: any) {
   //const gltf = useLoader(GLTFLoader, '/flower.gltf')
   const meshRef = useRef(null!);
 
-  const [spring, set] = useSpring(() => ({ scale: [1, 1, 1], position: [0, 0, 0], rotation: [1.7, -.2, -.2], config: { friction: 10 } }))
 
   return (<>
     <animated.mesh
     ref={meshRef}      
     {...props}
-	  {...spring}
     >
        <sphereGeometry/>
   		<meshStandardMaterial color='red'/>   

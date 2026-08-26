@@ -1,81 +1,122 @@
-import { createRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { Mesh } from 'three' 
-import { useDrag, useGesture } from '@use-gesture/react'
-import { Physics, PlaneProps, usePlane, usePointToPointConstraint, useSphere } from "@react-three/cannon"
-import { BufferGeometry } from 'three/src/Three.js'
+import { useDrag } from '@use-gesture/react'
+import { Physics, RigidBody, BallCollider, CuboidCollider } from "@react-three/rapier"
 
-const cursor = createRef<Mesh>()
-
-function Box (props: any) {
-  const [ref, api] = useSphere(() => ({ mass: 1 }))
-  const [, , constraint] = usePointToPointConstraint(cursor, ref, { pivotA: [0, 0, 0], pivotB: [0, 1, 0] })
-  useEffect(() => void constraint.disable(), [])
-  const bind = useDrag(({first, last})=> {if (first) constraint.enable(); if (last) constraint.disable();})
-
-  return (
-    <mesh      
-      {...props}
-	    {...bind()}
-      ref={ref}
-    > 
-       <sphereGeometry  />
-  		<meshStandardMaterial color='cyan'/>   
-    </mesh>
-  )
-}
-const Cursor = () => {
-  const [ref, api] = useSphere(() => ({ args: [0.1], position: [0, 0, 0], type: 'Static' }), cursor)
-  useFrame((state) => {
-    // pointer.x and pointer.y are normalized -1 to 1
-    const { pointer, viewport } = state
-    const x = pointer.x * viewport.width / 2
-    const y = pointer.y * viewport.height / 2
-    api.position.set(x, y, 0)
+function Box ({ cursorRef }: { cursorRef: React.RefObject<any> }) {
+  const ref = useRef<any>(null)
+  const [isConstraining, setIsConstraining] = useState(false)
+  const prevOffsetRef = useRef({ x: 0, y: 0 })
+  
+  const bind = useDrag(({ first, last, offset: [ox, oy], movement: [mx, my], velocity: [vx, vy] }) => {
+    if (first) {
+      setIsConstraining(true)
+      prevOffsetRef.current = { x: ox, y: oy }
+    }
+    
+    if (last) {
+      setIsConstraining(false)
+      // Use the velocity from gesture directly (already calculated per frame)
+      const velX = vx * 2
+      const velY = vy * 2
+      
+      // Apply velocity when releasing
+      if (ref.current) {
+        console.log('Releasing with velocity:', velX, velY)
+        ref.current.setLinvel({ x: velX, y: velY, z: 0 }, true)
+      }
+    }
+    
+    if (isConstraining && ref.current && cursorRef.current) {
+      // Follow the cursor position
+      const cursorPos = cursorRef.current.translation()
+      ref.current.setTranslation({
+        x: cursorPos.x,
+        y: cursorPos.y - 1, // Offset from cursor
+        z: cursorPos.z
+      }, true)
+    }
   })
 
   return (
-    <mesh ref={ref} scale={[0.2,0.2,0.2]}>
-      <sphereGeometry/>
-      <meshStandardMaterial />
-    </mesh>
+    <RigidBody ref={ref} mass={1}>
+      <mesh {...bind()}>
+        <sphereGeometry />
+        <meshStandardMaterial color='cyan' />
+      </mesh>
+      <BallCollider args={[1]} />
+    </RigidBody>
+  )
+}
+const Cursor = ({ ref }: { ref: React.RefObject<any> }) => {
+  useFrame((state) => {
+    // pointer.x and pointer.y are normalized -1 to 1
+    const { pointer, viewport } = state
+    if (!ref.current) return
+    const x = (pointer.x * viewport.width) / 2
+    const y = (pointer.y * viewport.height) / 2
+    ref.current.setTranslation({ x, y, z: 0 }, true)
+  })
+
+  return (
+    <RigidBody ref={ref} type="kinematicPosition" position={[0, 0, 0]}>
+      <mesh scale={[0.2, 0.2, 0.2]}>
+        <sphereGeometry />
+        <meshStandardMaterial />
+      </mesh>
+      <BallCollider args={[0.1]} />
+    </RigidBody>
   )
 }
 
-function Plane(props: PlaneProps) {
-	const [ref] = usePlane(() => ({...props }))
-	return (
-	  <mesh ref={ref as React.RefObject<Mesh<BufferGeometry>>}>
-		<planeGeometry args={[1000,1000]} />
-	  </mesh>
-	)
-  }
+function Plane(props: any) {
+  return (
+    <RigidBody type="fixed" {...props}>
+      <mesh>
+        <planeGeometry args={[1000, 1000]} />
+      </mesh>
+      <CuboidCollider args={[500, 500, 0.1]} />
+    </RigidBody>
+  )
+}
 
-    function Walls() {
-      const { viewport } = useThree()
-      return (
-        <>
-        <Plane position={[0, -viewport.height / 2, 0]} rotation={[-Math.PI / 2, 0, 0]} />
-        <Plane position={[-viewport.width / 2 - 1, 0, 0]} rotation={[0, Math.PI / 2, 0]} />
-        <Plane position={[viewport.width / 2 + 1, 0, 0]} rotation={[0, -Math.PI / 2, 0]} />
-        {/* <Plane position={[0, 0, -1]} rotation={[0, 0, 0]} /> */}
-        <Plane position={[0, 0, 12]} rotation={[0, -Math.PI, 0]} />
-        </>
-      )
-    }
+function Walls() {
+  const { viewport } = useThree()
+  return (
+    <>
+      {/* Bottom wall */}
+      <Plane position={[0, -viewport.height / 2, 0]} rotation={[-Math.PI / 2, 0, 0]} />
+      
+      {/* Top wall */}
+      <Plane position={[0, viewport.height / 2, 0]} rotation={[-Math.PI / 2, 0, 0]} />
+      
+      {/* Left wall */}
+      <Plane position={[-viewport.width / 2 - 1, 0, 0]} rotation={[0, Math.PI / 2, 0]} />
+      
+      {/* Right wall */}
+      <Plane position={[viewport.width / 2 + 1, 0, 0]} rotation={[0, -Math.PI / 2, 0]} />
+      
+      {/* Back wall */}
+      <Plane position={[0, 0, 12]} rotation={[0, -Math.PI, 0]} />
+    </>
+  )
+}
 
 export default function ThreeTest() {
+  const cursorRef = useRef<any>(null)
+
   return (
-    <Canvas orthographic camera={{zoom: 100, position: [0,0,100]}} style={{height: 900, touchAction: 'none' }}>
-      {/* <color attach="background" args={['red']} /> */}
-      <ambientLight intensity={0.5} />      
-      <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />      
-      <pointLight position={[-10, -10, -10]} />
-	    <Physics gravity={[0, -50, 0]}>
-        <Cursor />
+    <Canvas
+      orthographic
+      camera={{ zoom: 100, position: [0, 0, 100] }}
+      style={{ height: 900, touchAction: 'none' }}
+    >
+      <ambientLight intensity={0.5} />
+      <Physics gravity={[0, -10, 0]}>
+        <Cursor ref={cursorRef} />
         <Walls />
-        <Box />
-	    </Physics>    
+        <Box cursorRef={cursorRef} />
+      </Physics>
     </Canvas>
   )
 }
