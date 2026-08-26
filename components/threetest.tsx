@@ -6,33 +6,32 @@ import { Physics, RigidBody, BallCollider, CuboidCollider } from "@react-three/r
 function Box ({ cursorRef }: { cursorRef: React.RefObject<any> }) {
   const ref = useRef<any>(null)
   const [isConstraining, setIsConstraining] = useState(false)
-  const prevOffsetRef = useRef({ x: 0, y: 0 })
+  const { viewport } = useThree()
   
   const bind = useDrag(({ first, last, offset: [ox, oy], movement: [mx, my], velocity: [vx, vy] }) => {
     if (first) {
       setIsConstraining(true)
-      prevOffsetRef.current = { x: ox, y: oy }
     }
     
     if (last) {
       setIsConstraining(false)
+
+      console.log('Drag ended. Velocity:', vx, vy)
+      console.log('Drag ended. Movement:', mx, my);
       // Use the velocity from gesture directly (already calculated per frame)
-      const velX = vx * 2
-      const velY = vy * 2
-      
-      // Apply velocity when releasing
-      if (ref.current) {
-        console.log('Releasing with velocity:', velX, velY)
-        ref.current.setLinvel({ x: velX, y: velY, z: 0 }, true)
-      }
     }
     
     if (isConstraining && ref.current && cursorRef.current) {
       // Follow the cursor position
       const cursorPos = cursorRef.current.translation()
+      // Clamp y position to prevent ball from going below floor
+      const minY = -viewport.height / 2 + 1 // Ball radius + floor offset
+      const maxY = viewport.height / 2 - 1 // Prevent going above ceiling
+      const clampedY = Math.max(minY, Math.min(maxY, cursorPos.y - 1))
+      
       ref.current.setTranslation({
         x: cursorPos.x,
-        y: cursorPos.y - 1, // Offset from cursor
+        y: clampedY,
         z: cursorPos.z
       }, true)
     }
