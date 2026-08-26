@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import s from './ProjectsAccordion.module.scss'
 import { MdAdjust, MdArrowDropDown, MdArrowRightAlt } from 'react-icons/md'
 import Link from 'next/link'
@@ -273,6 +273,20 @@ const projects = [
 export default function ProjectsAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
   const [selectedTags, setSelectedTags] = useState<string[]>([])
+  const itemRefs = useRef<{ [key: number]: HTMLDivElement | null }>({})
+  const isFirstRender = useRef(true)
+
+  // Scroll to opened accordion item (but not on initial page load)
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false
+      return
+    }
+    
+    if (openIndex !== null && itemRefs.current[openIndex]) {
+      itemRefs.current[openIndex]?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [openIndex])
 
   // Get all unique tags from projects
   const allTags = Array.from(
@@ -350,7 +364,13 @@ export default function ProjectsAccordion() {
           const titleDate = titleMatch ? titleMatch[2] : null
 
           return (
-            <div key={i} className={s.accordionItem}>
+            <div 
+              key={i} 
+              className={s.accordionItem}
+              ref={(el) => {
+                if (el) itemRefs.current[originalIndex] = el
+              }}
+            >
               <div className={s.accordionHeader}>
                 <button
                   className={s.accordionButton}
