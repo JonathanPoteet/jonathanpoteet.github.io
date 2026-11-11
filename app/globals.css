@@ -30,8 +30,13 @@ body {
 
 
 .pixelatedHorse {
-  width: 200px;
-  height: 200px;
+  position: fixed;
+  right: 10px;
+  bottom: 5rem;
+  width: 100px;
+  height: 100px;
+  pointer-events: none;
+  image-rendering: pixelated;
 }
 
 @media (max-width: 768px) {

@@ -4,6 +4,7 @@ import ProjectsAccordion from '../components/projectsAccordion/ProjectsAccordion
 import FunStuff from './FunStuff/FunStuff'
 import {MdArrowRightAlt, MdAdjust} from 'react-icons/md'
 import NoiseWalker from './noiseWalker/noiseWalker'
+import HorseSprite from './components/HorseSprite'
 export default function Home() {
   return (
     <main className="min-h-screen">
@@ -90,17 +91,7 @@ export default function Home() {
           <FunStuff />
         </div>
 
-        <img 
-        src="/horse-sprite.png"
-        alt="Decorative Horse Sprite"
-        className="pixelatedHorse"
-        style={{
-          position: 'fixed',
-          right: '10px',          // Slightly off the absolute edge so it isn't cut off
-          bottom: '5rem',         // MATCH THIS to your body padding-bottom (5rem) so it sits exactly on top of the footer!
-          pointerEvents: 'none', 
-        }}
-      />
+        <HorseSprite />
 
 
     </main>
