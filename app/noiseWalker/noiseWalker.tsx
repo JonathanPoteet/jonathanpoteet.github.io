@@ -15,6 +15,7 @@ const NoiseWalker = () => {
     const ctx = canvas?.getContext('2d');
     let animationFrameId = NaN;
     if (!canvas || !ctx || !containerRef.current) return;
+    let isInitialized = false;
 
     if (!spriteRef.current) {
     const img = new Image();
@@ -30,37 +31,55 @@ const NoiseWalker = () => {
       // guard against transient zero sizes during resize
       if (clientWidth === 0 || clientHeight === 0) return;
 
-      canvas.width = clientWidth;
-      canvas.height = clientHeight;
+      const dimensionsChanged =
+        canvas.width !== clientWidth || canvas.height !== clientHeight;
+      if (dimensionsChanged) {
+        const previousWidth = canvas.width;
+        const previousHeight = canvas.height;
+        canvas.width = clientWidth;
+        canvas.height = clientHeight;
 
-      // initialize at center and then nudge out of the card if it overlaps
-      walker.current.x = canvas.width / 2;
-      walker.current.y = canvas.height / 2;
-      if (h1Ref.current && containerRef.current) {
-        const h1Rect = h1Ref.current.getBoundingClientRect();
-        const containerRect = containerRef.current.getBoundingClientRect();
-        const obstacle = {
-          left: h1Rect.left - containerRect.left,
-          right: h1Rect.right - containerRect.left,
-          top: h1Rect.top - containerRect.top,
-          bottom: h1Rect.bottom - containerRect.top,
-        };
-        // if the walker is inside the obstacle, move it to the nearest edge
-        if (
-          walker.current.x > obstacle.left &&
-          walker.current.x < obstacle.right &&
-          walker.current.y > obstacle.top &&
-          walker.current.y < obstacle.bottom
-        ) {
-          // push horizontally to the right edge
-          walker.current.x = obstacle.right + 20;
-          // clamp within canvas
-          walker.current.x = Math.min(walker.current.x, canvas.width - 5);
+        if (isInitialized) {
+          walker.current.x = previousWidth > 0
+            ? walker.current.x * clientWidth / previousWidth
+            : clientWidth / 2;
+          walker.current.y = previousHeight > 0
+            ? walker.current.y * clientHeight / previousHeight
+            : clientHeight / 2;
         }
       }
 
-      ctx.fillStyle = '#c8ff00';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      if (!isInitialized) {
+        // initialize at center and then nudge out of the card if it overlaps
+        walker.current.x = canvas.width / 2;
+        walker.current.y = canvas.height / 2;
+        if (h1Ref.current && containerRef.current) {
+          const h1Rect = h1Ref.current.getBoundingClientRect();
+          const containerRect = containerRef.current.getBoundingClientRect();
+          const obstacle = {
+            left: h1Rect.left - containerRect.left,
+            right: h1Rect.right - containerRect.left,
+            top: h1Rect.top - containerRect.top,
+            bottom: h1Rect.bottom - containerRect.top,
+          };
+          if (
+            walker.current.x > obstacle.left &&
+            walker.current.x < obstacle.right &&
+            walker.current.y > obstacle.top &&
+            walker.current.y < obstacle.bottom
+          ) {
+            walker.current.x = Math.min(obstacle.right + 20, canvas.width - 5);
+          }
+        }
+        isInitialized = true;
+      }
+
+      if (dimensionsChanged) {
+        walker.current.x = Math.max(25, Math.min(walker.current.x, canvas.width - 25));
+        walker.current.y = Math.max(25, Math.min(walker.current.y, canvas.height - 25));
+        ctx.fillStyle = '#c8ff00';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
     };
 
     // debounce resize so we don't thrash canvas sizing on continuous resize
